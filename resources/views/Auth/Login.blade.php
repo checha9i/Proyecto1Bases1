@@ -65,16 +65,25 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
+
                             <h1><strong>Call-Center E-Sports</strong> Login </h1>
                            
+
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                         	<div class="form-top">
                         		<div class="form-top-left">
-                        			<h3>LOGIN</h3>
-                            		<p>Intruduzca su nombre de usuario y su contraseñia :D</p>
+
+                              <h3>No tienes cuenta Registrate</h3>
+
+                                <a class="btn btn-link-2" href="/Register">
+                                   Registrarse
+                                </a>
+                                <h3>Login to our site</h3>
+                            		<p>Enter your username and password to log on:</p>
+
                         		</div>
                         		<div class="form-top-right">
                         			<i class="fa fa-lock"></i>
