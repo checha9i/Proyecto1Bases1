@@ -1,0 +1,167 @@
+CREATE DATABASE basesproyecto1;
+use bases1;
+CREATE TABLE atender_cliente (
+    id_cliente           INTEGER NOT NULL,
+    flujo_id_flujo       INTEGER NOT NULL,
+    cliente_cliente_id   INTEGER NOT NULL
+);
+
+ALTER TABLE atender_cliente ADD CONSTRAINT atender_cliente_pk PRIMARY KEY ( id_cliente );
+
+CREATE TABLE bitacora (
+    id_bita          INTEGER NOT NULL,
+    fecha            DATE,
+    detalle          VARCHAR(150),
+    usuario_id_usu   INTEGER NOT NULL
+);
+
+ALTER TABLE bitacora ADD CONSTRAINT bitacora_pk PRIMARY KEY ( id_bita );
+
+CREATE TABLE cliente (
+    cliente_id   INTEGER NOT NULL,
+    id_cliente   INTEGER,
+    nombre       VARCHAR(50),
+    edad         INTEGER,
+    direccion    VARCHAR(100),
+    telefono     INTEGER,
+    correo_e     VARCHAR(100)
+);
+
+ALTER TABLE cliente ADD CONSTRAINT cliente_pk PRIMARY KEY ( cliente_id );
+
+CREATE TABLE detall_formulario (
+    formulario_id_examen     INTEGER NOT NULL,
+    respuesta_id_respuesta   INTEGER NOT NULL,
+    pregunta_idpregunta      INTEGER NOT NULL,
+    nota                     FLOAT,
+    cliente_cliente_id       INTEGER NOT NULL
+);
+
+CREATE TABLE detalle_fo_flu (
+    formulario_id_examen   INTEGER NOT NULL,
+    flujo_id_flujo         INTEGER NOT NULL
+);
+
+CREATE TABLE flujo (
+    id_flujo   INTEGER NOT NULL,
+    tipo       VARCHAR(50)
+);
+
+ALTER TABLE flujo ADD CONSTRAINT flujo_pk PRIMARY KEY ( id_flujo );
+
+CREATE TABLE formulario (
+    id_examen         INTEGER NOT NULL,
+    fecha             DATE,
+    duracion          FLOAT,
+    tipo_evaluacion   INTEGER NOT NULL
+);
+
+ALTER TABLE formulario ADD CONSTRAINT formulario_pk PRIMARY KEY ( id_examen );
+
+CREATE TABLE pregunta (
+    idpregunta                INTEGER NOT NULL,
+    pregunta                  VARCHAR(100),
+    respuesta                 VARCHAR(100),
+    nivel                     INTEGER,
+    tipo_pregunta_id_tipo_p   INTEGER NOT NULL,
+    usuario_id_usu            INTEGER NOT NULL
+);
+
+ALTER TABLE pregunta ADD CONSTRAINT pregunta_pk PRIMARY KEY ( idpregunta );
+
+CREATE TABLE respuesta (
+    id_respuesta   INTEGER NOT NULL,
+    descripcion    VARCHAR(100),
+    tipo           VARCHAR(50)
+);
+
+ALTER TABLE respuesta ADD CONSTRAINT respuesta_pk PRIMARY KEY ( id_respuesta );
+
+CREATE TABLE tipo_evaluacion (
+    tipo_evaluacion   INTEGER NOT NULL,
+    id_tipo_eva       INTEGER,
+    tipo              VARCHAR(50)
+);
+
+ALTER TABLE tipo_evaluacion ADD CONSTRAINT tipo_evaluacion_pk PRIMARY KEY ( tipo_evaluacion );
+
+CREATE TABLE tipo_pregunta (
+    id_tipo_p   INTEGER NOT NULL,
+    tipo        VARCHAR(50)
+);
+
+ALTER TABLE tipo_pregunta ADD CONSTRAINT tipo_pregunta_pk PRIMARY KEY ( id_tipo_p );
+
+CREATE TABLE tipo_puesto (
+    id_puesto   INTEGER NOT NULL,
+    nombre      VARCHAR(50),
+    tipo        VARCHAR(50)
+);
+
+ALTER TABLE tipo_puesto ADD CONSTRAINT tipo_puesto_pk PRIMARY KEY ( id_puesto );
+
+CREATE TABLE usuario (
+    id_usu                  INTEGER NOT NULL,
+    nombre                  VARCHAR(50),
+    dpi                     INTEGER,
+    telefono                INTEGER,
+    salario                 FLOAT,
+    tipo_puesto_id_puesto   INTEGER NOT NULL,
+   contrasenia VARCHAR(50)
+);
+
+ALTER TABLE usuario ADD CONSTRAINT usuario_pk PRIMARY KEY ( id_usu );
+
+ALTER TABLE atender_cliente
+    ADD CONSTRAINT atender_cliente_cliente_fk FOREIGN KEY ( cliente_cliente_id )
+        REFERENCES cliente ( cliente_id );
+
+ALTER TABLE atender_cliente
+    ADD CONSTRAINT atender_cliente_flujo_fk FOREIGN KEY ( flujo_id_flujo )
+        REFERENCES flujo ( id_flujo );
+
+ALTER TABLE bitacora
+    ADD CONSTRAINT bitacora_usuario_fk FOREIGN KEY ( usuario_id_usu )
+        REFERENCES usuario ( id_usu );
+
+ALTER TABLE detall_formulario
+    ADD CONSTRAINT detall_formulario_cliente_fk FOREIGN KEY ( cliente_cliente_id )
+        REFERENCES cliente ( cliente_id );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE detall_formulario
+    ADD CONSTRAINT detall_formulario_fk FOREIGN KEY ( formulario_id_examen )
+        REFERENCES formulario ( id_examen );
+
+ALTER TABLE detall_formulario
+    ADD CONSTRAINT detall_formulario_pregunta_fk FOREIGN KEY ( pregunta_idpregunta )
+        REFERENCES pregunta ( idpregunta );
+
+ALTER TABLE detall_formulario
+    ADD CONSTRAINT detall_formulario_respuesta_fk FOREIGN KEY ( respuesta_id_respuesta )
+        REFERENCES respuesta ( id_respuesta );
+
+ALTER TABLE detalle_fo_flu
+    ADD CONSTRAINT detalle_fo_flu_flujo_fk FOREIGN KEY ( flujo_id_flujo )
+        REFERENCES flujo ( id_flujo );
+
+ALTER TABLE detalle_fo_flu
+    ADD CONSTRAINT detalle_fo_flu_formulario_fk FOREIGN KEY ( formulario_id_examen )
+        REFERENCES formulario ( id_examen );
+
+ALTER TABLE formulario
+    ADD CONSTRAINT formulario_tipo_evaluacion_fk FOREIGN KEY ( tipo_evaluacion )
+        REFERENCES tipo_evaluacion ( tipo_evaluacion );
+
+ALTER TABLE pregunta
+    ADD CONSTRAINT pregunta_tipo_pregunta_fk FOREIGN KEY ( tipo_pregunta_id_tipo_p )
+        REFERENCES tipo_pregunta ( id_tipo_p );
+
+ALTER TABLE pregunta
+    ADD CONSTRAINT pregunta_usuario_fk FOREIGN KEY ( usuario_id_usu )
+        REFERENCES usuario ( id_usu );
+
+ALTER TABLE usuario
+    ADD CONSTRAINT usuario_tipo_puesto_fk FOREIGN KEY ( tipo_puesto_id_puesto )
+        REFERENCES tipo_puesto ( id_puesto );
+
