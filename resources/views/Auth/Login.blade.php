@@ -47,9 +47,7 @@
                       <span class="sr-only">(current)</span>
                     </a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link " href="/Login"><i class="fa fa-sign-in"></i> Log in</a>
-                  </li>
+
                   <li class="nav-item">
                     <a class="nav-link " href="/Register"><i class="fa fa-sign-up"></i> Sign Up</a>
                   </li>
@@ -72,12 +70,18 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                         	<div class="form-top">
                         		<div class="form-top-left">
                         			<h3>Login to our site</h3>
                             		<p>Enter your username and password to log on:</p>
+                                <h3>No tienes cuenta Registrate</h3>
+
+                                  <a class="btn btn-link-2" href="/Register">
+                                     Registrarse
+                                  </a>
                         		</div>
                         		<div class="form-top-right">
                         			<i class="fa fa-lock"></i>
@@ -98,26 +102,17 @@
 		                    </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-6 col-sm-offset-3 social-login">
-                        	<h3>...or login with:</h3>
-                        	<div class="social-login-buttons">
-	                        	<a class="btn btn-link-2" href="#">
-	                        		<i class="fa fa-facebook"></i> Facebook
-	                        	</a>
-	                        	<a class="btn btn-link-2" href="#">
-	                        		<i class="fa fa-twitter"></i> Twitter
-	                        	</a>
-	                        	<a class="btn btn-link-2" href="#">
-	                        		<i class="fa fa-google-plus"></i> Google Plus
-	                        	</a>
-                        	</div>
-                        </div>
-                    </div>
+
                 </div>
+
+
             </div>
 
         </div>
+
+
+
+
 
 
         <!-- Javascript -->

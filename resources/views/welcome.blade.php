@@ -43,7 +43,7 @@
               <a class="nav-link " href="/Login"><i class="fa fa-sign-in"></i> Log in</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " href="/Register"><i class="fa fa-sign-up"></i> Sign Up</a>
+              <a class="nav-link " href="/Register">Sign Up</a>
             </li>
           </ul>
         </div>
