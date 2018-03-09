@@ -22,7 +22,7 @@ class Controller extends BaseController
       $checkLogin = DB::table('usuario')->where(['nombre'=>$username,'contrasenia'=>$password])->get();
       if(count($checkLogin)  >0)
       {
-       echo "Login SuccessFull<br/>";;
+       echo "Login SuccessFull<br/>";
       }
       else
       {
