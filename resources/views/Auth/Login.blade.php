@@ -58,15 +58,15 @@
                             <div class="form-bottom">
 			                    <form role="form" action="/loginme" method="post" class="login-form">
 			                    	<div class="form-group">
+                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 			                    		<label class="sr-only" for="form-username">Username</label>
-			                        	<input type="text" name="form-username" placeholder="Usuario..." class="form-username form-control" id="form-username" value="{{ csrf_token() }}">
-			                        </div>
-			                        <div class="form-group">
+			                        	<input type="text" name="form-username" placeholder="Usuario..." class="form-username form-control" id="form-username">
 			                        	<label class="sr-only" for="form-password">Password</label>
-			                        	<input type="password" name="form-password" placeholder="Contraseñia..." class="form-password  form-control" id="form-password" value="{{ csrf_token() }}">
+			                        	<input type="password" name="form-password" placeholder="Contraseñia..." class="form-password  form-control" id="form-password">
 			                        </div>
-			                        <button type="submit" class="btn">Ingresar</button>
+			                        <input type="submit" name="login" value="Login">
 			                    </form>
+
 		                    </div>
                         </div>
                     </div>
