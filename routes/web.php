@@ -19,3 +19,8 @@ Route::get('/Login', function (){
 
   return view('Auth/Login');
 });
+
+
+
+
+Route::post('/loginme','Controller@login');
