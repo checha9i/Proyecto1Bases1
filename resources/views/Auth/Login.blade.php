@@ -62,7 +62,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Call Center E-Sports</a>
+        <a class="navbar-brand" href="/">Call Center E-Sports</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -92,7 +92,7 @@
                         <div class="col-sm-8 col-sm-offset-2 text">
 
                             <h1><strong>Call-Center E-Sports</strong> Login </h1>
-                           
+
 
                         </div>
                     </div>
