@@ -21,9 +21,8 @@ Route::get('/Login', function (){
 });
 
 
-Route::get('/Register', function () {
-    return view('Auth/Register');
-});
-Route::get('/QForm', function () {
-    return view('Questions/QuestionForm');
-});
+
+
+
+Route::post('/loginme','Controller@login');
+
