@@ -101,13 +101,16 @@
                         	<div class="form-top">
                         		<div class="form-top-left">
 
-                              <h3>No tienes cuenta Registrate</h3>
+                              <h3>Registrarse...</h3>
 
                                 <a class="btn btn-link-2" href="/Register">
                                    Registrarse
                                 </a>
-                                <h3>Login to our site</h3>
-                            		<p>Enter your username and password to log on:</p>
+                                <p> </p>
+                                <p> </p>
+                                <p> </p>
+                                
+                            		<p>Ingrese su nombre y su contraseña</p>
 
                         		</div>
                         		<div class="form-top-right">
