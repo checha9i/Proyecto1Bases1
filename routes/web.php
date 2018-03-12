@@ -20,6 +20,16 @@ Route::get('/Login', function (){
   return view('Auth/Login');
 });
 
+Route::get('/ERROR', function (){
+
+  return view('Auth/Error');
+});
+
+Route::get('/ERROR1', function (){
+
+  return view('Auth/ErrorLo');
+});
+
 
 Route::get('/Register', function () {
     return view('Auth/Register');
@@ -30,4 +40,6 @@ Route::get('/QForm', function () {
 
 
 Route::post('/loginme','Controller@login');
+Route::post('/regisme','Controller@registrar');
+
 

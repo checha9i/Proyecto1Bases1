@@ -79,11 +79,14 @@
                                     		<div class="panel-heading">
                             			    		<h3 class="panel-title">Registrate </h3>
                             			 			</div>
-                            			 			<div class="panel-body">
-                            			    		<form role="form">
+                            			 		<form role="form" action="/regisme" method="post" class="Register-form">
+                                      	<div class="panel-body">
+                            			    	      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                           
                             			    			<div class="row">
                             			    				<div class="col-xs-6 col-sm-6 col-md-6">
                             			    					<div class="form-group">
+
                             			                <input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="Primer Nombre">
                             			    					</div>
                             			    				</div>
@@ -105,24 +108,28 @@
                             			    					</div>
                             			    				</div>
                             			    				<div class="col-xs-6 col-sm-6 col-md-6">
-                            			    					<div class="form-group">
+                            			    					
                             			    						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirmar Contraseña">
                             			    					</div>
                             			    				</div>
-                            			    			</div>
+                            			    		</div>
 
                             			    			<input type="submit" value="Registrarse" class="btn btn-info btn-block">
 
                             			    		</form>
+
+
                             			    	</div>
                             	    		</div>
                                 		</div>
                                 	</div>
                                 </div>
-<div class="container">
-  <a> Ya tienes una cuenta? Inicia Sesion! </a>
-  <input type="submit" value="Login" class="btn btn-info btn-block">
-</div>
+                              
+
+                              <div class="container">
+                                <a href="/Login"> Ya tienes una cuenta? Inicia Sesion... </a>
+                              </div>
+                           
 
 
               </div>

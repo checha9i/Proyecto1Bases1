@@ -26,24 +26,30 @@ class Controller extends BaseController
       }
       else
       {
-       echo "Login Faield Wrong Data Passed";
+       return redirect('/ERROR1');
       }
   }
 
   public function registrar(Request $req)
      {
-      $username = $req->input('form-username');
-      $password = $req->input('form-password');
+      $username = $req->input('first_name');
+      $lasname= $req->input('last_name');
+      $password = $req->input('password');
+      $email= $req->input('email');
+      $pass1= $req->input('password_confirmation');
 
-      $checkLogin = DB::table('usuario')->where(['nombre'=>$username,'contrasenia'=>$password])->get();
-      if(count($checkLogin)  >0)
-      {
-       echo "Login SuccessFull<br/>";
-      }
-      else
-      {
-       echo "Login Faield Wrong Data Passed";
-      }
+    if ($password==$pass1){ 
+
+	 DB::table('usuario')->insert(['nombre'=>$username,'Apellido'=>$lasname,'contrasenia'=>$password,'email'=>$email,
+	      	'tipo_puesto_id_puesto'=>2]);
+	     
+	     return redirect('/Login');
+
+    }else {
+
+    	 return redirect('/ERROR');
+    }
+  
   }
 
 
