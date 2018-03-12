@@ -27,3 +27,15 @@ Route::get('/Register', function () {
 Route::get('/QForm', function () {
     return view('Questions/QuestionForm');
 });
+
+Route::get('/FVForm', function () {
+    return view('Questions/FVForm');
+});
+
+Route::get('/Validate', function () {
+    return view('Questions/ValidarPregunta');
+});
+
+Route::get('/Create', function () {
+    return view('Questions/CrearPregunta');
+});
