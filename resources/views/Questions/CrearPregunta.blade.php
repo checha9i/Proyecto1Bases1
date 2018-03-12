@@ -35,15 +35,15 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home
+              <a class="nav-link" href="/">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " href="/Login"><i class="fa fa-sign-in"></i> Log in</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="/Register">Sign Up</a>
+                <a class="nav-link " href="/"><i class="fa fa-user"></i>Cuenta</a>
+                </li>
+                <li class="nav-item">
+              <a class="nav-link " href="/"><i class="fa fa-sign-out"></i>Cerrar Sesion</a>
             </li>
           </ul>
         </div>
@@ -57,24 +57,29 @@
 </br>
 <div class="container">
   <p>Crear Pregunta</p>
+  <textarea id="Pregunta" rows="4" cols="100">
 
-  <button onclick="myFunction()">Try it</button>
+</textarea>
+  <p>Tipo de Pregunta</p>
+  <select id="TipoPregunta" onchange="TipoPregunta()">
+    <option value="Seleccione">Seleccione</option>
+    <option value="Multiple">Multiple</option>
+    <option value="FV">Falso Verdadero</option>
+    <option value="Directa">Directa</option>
+    <option value="Final">Final</option>
+  </select>
+  <ul class = "list-group" id="res">
+
+  </ul>
+
+  <button onclick="AgregarPregunta()">Agregar Pregunta</button>
 
 
 </div>
 
-    <script>
-    function myFunction() {
-        var y = document.createElement("DIV");
-        var x = document.createElement("P");
-        var t = document.createTextNode("This is a paragraph.");
-        x.appendChild(t);
-        y.appendChild(x);
-        y.className=' container';
-        document.body.appendChild(y);
-    }
-    </script>
 
+
+    <script src="js/Forms/CrearPregunta.js" type="text/javascript" language="JavaScript"></script>
 
   </body>
 
