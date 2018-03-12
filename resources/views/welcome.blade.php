@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>Call-Center e-Sports</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -30,14 +30,14 @@ body, html {
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar  w3-card" id="myNavbar">
-    <a href="#home" class="w3-bar-item w3-button w3-wide">LOGO</a>
+    <a href="#home" class="w3-bar-item w3-button w3-wide">Call-Center e-Sports</a>
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
       <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
       <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> TEAM</a>
       <a href="#work" class="w3-bar-item w3-button"><i class="fa fa-th"></i> WORK</a>
-      <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> PRICING</a>
-      <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+      <a href="#SIGN-UP" class="w3-bar-item w3-button"><i class="fa fa-user"></i> Registrarse</a>
+      <a href="#sign-in" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i> Iniciar Sesion</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -53,16 +53,16 @@ body, html {
   <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
   <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
   <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">WORK</a>
-  <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">PRICING</a>
-  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+  <a href="#SIGN-UP" onclick="w3_close()" class="w3-bar-item w3-button">Registrarse</a>
+  <a href="#sign-in" onclick="w3_close()" class="w3-bar-item w3-button">Iniciar Sesion</a>
 </nav>
 
 <!-- Header with full-height image -->
 <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
   <div class="w3-display-left w3-text-white" style="padding:48px">
-    <span class="w3-jumbo w3-hide-small">Start something that matters</span><br>
-    <span class="w3-xxlarge w3-hide-large w3-hide-medium">Start something that matters</span><br>
-    <span class="w3-large">Stop wasting valuable time with projects that just isn't you.</span>
+    <span class="w3-jumbo w3-hide-small">Crea formularios </span><br>
+    <span class="w3-xxlarge w3-hide-large w3-hide-medium">Crea formularios </span><br>
+    <span class="w3-large">Facil y Rapido solo inicia sesion y empieza.</span>
     <p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn more and start today</a></p>
   </div>
   <div class="w3-display-bottomleft w3-text-grey w3-large" style="padding:24px 48px">
@@ -129,7 +129,7 @@ body, html {
           <h3>John Doe</h3>
           <p class="w3-opacity">CEO & Founder</p>
           <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> SIGN-IN</button></p>
         </div>
       </div>
     </div>
@@ -140,7 +140,7 @@ body, html {
           <h3>Anja Doe</h3>
           <p class="w3-opacity">Art Director</p>
           <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> SIGN-IN</button></p>
         </div>
       </div>
     </div>
@@ -151,7 +151,7 @@ body, html {
           <h3>Mike Ross</h3>
           <p class="w3-opacity">Web Designer</p>
           <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> SIGN-IN</button></p>
         </div>
       </div>
     </div>
@@ -162,7 +162,7 @@ body, html {
           <h3>Dan Star</h3>
           <p class="w3-opacity">Designer</p>
           <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> SIGN-IN</button></p>
         </div>
       </div>
     </div>
@@ -262,88 +262,120 @@ body, html {
 </div>
 
 <!-- Pricing Section -->
-<div class="w3-container w3-center w3-dark-grey" style="padding:128px 16px" id="pricing">
-  <h3>PRICING</h3>
-  <p class="w3-large">Choose a pricing plan that fits your needs.</p>
-  <div class="w3-row-padding" style="margin-top:64px">
-    <div class="w3-third w3-section">
-      <ul class="w3-ul w3-white w3-hover-shadow">
-        <li class="w3-black w3-xlarge w3-padding-32">Basic</li>
-        <li class="w3-padding-16"><b>10GB</b> Storage</li>
-        <li class="w3-padding-16"><b>10</b> Emails</li>
-        <li class="w3-padding-16"><b>10</b> Domains</li>
-        <li class="w3-padding-16"><b>Endless</b> Support</li>
-        <li class="w3-padding-16">
-          <h2 class="w3-wide">$ 10</h2>
-          <span class="w3-opacity">per month</span>
-        </li>
-        <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
-        </li>
-      </ul>
-    </div>
-    <div class="w3-third">
-      <ul class="w3-ul w3-white w3-hover-shadow">
-        <li class="w3-red w3-xlarge w3-padding-48">Pro</li>
-        <li class="w3-padding-16"><b>25GB</b> Storage</li>
-        <li class="w3-padding-16"><b>25</b> Emails</li>
-        <li class="w3-padding-16"><b>25</b> Domains</li>
-        <li class="w3-padding-16"><b>Endless</b> Support</li>
-        <li class="w3-padding-16">
-          <h2 class="w3-wide">$ 25</h2>
-          <span class="w3-opacity">per month</span>
-        </li>
-        <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
-        </li>
-      </ul>
-    </div>
-    <div class="w3-third w3-section">
-      <ul class="w3-ul w3-white w3-hover-shadow">
-        <li class="w3-black w3-xlarge w3-padding-32">Premium</li>
-        <li class="w3-padding-16"><b>50GB</b> Storage</li>
-        <li class="w3-padding-16"><b>50</b> Emails</li>
-        <li class="w3-padding-16"><b>50</b> Domains</li>
-        <li class="w3-padding-16"><b>Endless</b> Support</li>
-        <li class="w3-padding-16">
-          <h2 class="w3-wide">$ 50</h2>
-          <span class="w3-opacity">per month</span>
-        </li>
-        <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
-        </li>
-      </ul>
-    </div>
+<div class="w3-container w3-center" style="padding:128px 16px" id="SIGN-UP">
+  <div class="top-content">
+
+      <div class="inner-bg">
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-8 col-sm-offset-2 text">
+
+                      <div class="description ">
+                        <p>
+                        Ingrese sus datos.
+                       </p>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                        <div class="container">
+                                <div class="row centered-form">
+                                <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+                                  <div class="panel panel-default">
+                                      <h3 class="panel-title ">Registrate </br><small>Ingresa tus datos</small></h3>
+                                    <div class="panel-body">
+                                      <form role="form">
+                                        <div class="row">
+                                          <div class="col-xs-6 col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                              <input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name">
+                                            </div>
+                                          </div>
+                                          <div class="col-xs-6 col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                              <input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name">
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                          <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
+                                        </div>
+
+                                        <div class="row">
+                                          <div class="col-xs-6 col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                              <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
+                                            </div>
+                                          </div>
+                                          <div class="col-xs-6 col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                              <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password">
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                        <input type="submit" value="Register" class="btn btn-info btn-block">
+
+                                      </form>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+<div class="container">
+<a> Ya tienes una cuenta? Inicia Sesion! </a>
+</div>
+
+
+          </div>
+      </div>
+
   </div>
+</div>
 </div>
 
 <!-- Contact Section -->
-<div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
-  <h3 class="w3-center">CONTACT</h3>
-  <p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
-  <div class="w3-row-padding" style="margin-top:64px">
-    <div class="w3-half">
-      <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Chicago, US</p>
-      <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +00 151515</p>
-      <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com</p>
-      <br>
-      <form action="/action_page.php" target="_blank">
-        <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
-        <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
-        <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
-        <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
-        <p>
-          <button class="w3-button w3-black" type="submit">
-            <i class="fa fa-paper-plane"></i> SEND MESSAGE
-          </button>
-        </p>
-      </form>
-    </div>
-    <div class="w3-half">
-      <!-- Add Google Maps -->
-      <div id="googleMap" class="w3-greyscale-max" style="width:100%;height:510px;"></div>
-    </div>
+<div class="w3-container " style="padding:128px 16px" id="sign-in">
+        <div class="top-content">
+          <div class="inner-bg">
+      <div class="container">
+
+          <div class="row">
+              <div class="col-sm-6 col-sm-offset-3 form-box">
+                <div class="form-top">
+                  <div class="form-top-left">
+
+                      <h3>Login to our site</h3>
+                      <p>Enter your username and password to log on:</p>
+
+                  </div>
+                  <div class="form-top-right">
+                    <i class="fa fa-lock"></i>
+                  </div>
+                  </div>
+                  <div class="form-bottom">
+                <form role="form" action="/loginme" method="post" class="login-form">
+                  <div class="form-group">
+                               <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <label class="sr-only" for="form-username">Username</label>
+                      <input type="text" name="form-username" placeholder="Usuario..." class="form-username form-control" id="form-username">
+                      <label class="sr-only" for="form-password">Password</label>
+                      <input type="password" name="form-password" placeholder="Contraseñia..." class="form-password  form-control" id="form-password">
+                    </div>
+                    <input type="submit" name="login" value="Login">
+                </form>
+                <h3>No tienes cuenta Registrate</h3>
+
+                  <a class="btn btn-link-2" href="/Register">
+                     Registrarse
+                  </a>
+              </div>
+              </div>
+          </div>
+      </div>
   </div>
+    </div>
 </div>
 
 <!-- Footer -->
@@ -408,6 +440,14 @@ function w3_close() {
 To use this code on your website, get a free API key from Google.
 Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
 -->
+
+
+<!-- Javascript -->
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="js/jquery.backstretch.min.js"></script>
+<script src="js/scripts.js"></script>
+
 
 </body>
 </html>
