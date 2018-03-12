@@ -27,7 +27,7 @@ Route::get('/Register', function () {
 Route::get('/QForm', function () {
     return view('Questions/QuestionForm');
 });
-
+Route::post('/loginme','Controller@login');
 Route::get('/FVForm', function () {
     return view('Questions/FVForm');
 });
