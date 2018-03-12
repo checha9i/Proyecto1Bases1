@@ -84,48 +84,40 @@
 <div class = "panel-body">
       <h4>Your Answer</h4>
            </div>
-<ul class = "list-group">
-    <li class = "list-group-item">
-          <div class="checkbox">
-            <input type="checkbox" id="checkbox" />
-            <label for="checkbox">
-                1 and 2 only
-            </label>
-        </div>
-    </li>
-    <li class = "list-group-item">
-          <div class="checkbox">
-            <input type="checkbox" id="checkbox" />
-            <label for="checkbox">
-                2 and 3 only
-            </label>
-        </div>
-    </li>
-    <li class = "list-group-item">
-          <div class="checkbox">
-            <input type="checkbox" id="checkbox" />
-            <label for="checkbox">
-                1 and 3 only
-            </label>
-        </div>
-    </li>
-    <li class = "list-group-item">
-          <div class="checkbox">
-            <input type="checkbox" id="checkbox" />
-            <label for="checkbox">
-                1, 2 and 3
-            </label>
-        </div>
-    </li>
-   </ul>
-                <div class="panel-footer">
 
+                <div class="panel-footer">
+                <form action="../" onsubmit="return checkCheckBoxes(this);">
+
+                    <ul class = "list-group">
+                        <li class = "list-group-item">
+                              <div class="checkbox">
+                                <input type="CHECKBOX" name="CHECKBOX_1" value="Falso" />
+                                <label for="checkbox">
+                                    Falso
+                                </label>
+                            </div>
+                        </li>
+
+                        <li class = "list-group-item">
+                              <div class="checkbox">
+                                <input type="checkbox" id="CHECKBOX_2" value="Verdadero"/>
+                                <label for="checkbox">
+                                    Verdadero
+                                </label>
+                            </div>
+                        </li>
+                      </ul>
+                  <input type="submit" class="btn btn-success" name="submit" value="Submit">
+                  </form>
                 </div>
         </div>
 </div>
 </div>
 </div>
 </div>
+
+<script src="js/Forms/FVForm.js" type="text/javascript" language="JavaScript"></script>
+
 </body>
 
 </html>

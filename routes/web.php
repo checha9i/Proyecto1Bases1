@@ -37,9 +37,17 @@ Route::get('/Register', function () {
 Route::get('/QForm', function () {
     return view('Questions/QuestionForm');
 });
-
-
 Route::post('/loginme','Controller@login');
+
+  Route::get('/FVForm', function () {
+    return view('Questions/FVForm');
+});
 Route::post('/regisme','Controller@registrar');
 
+Route::get('/Validate', function () {
+    return view('Questions/ValidarPregunta');
+});
 
+Route::get('/Create', function () {
+    return view('Questions/CrearPregunta');
+});
