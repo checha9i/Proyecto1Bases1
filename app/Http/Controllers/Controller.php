@@ -18,16 +18,32 @@ class Controller extends BaseController
      {
       $username = $req->input('form-username');
       $password = $req->input('form-password');
+      
+      $checkLogin = DB::select('select * from usuario where nombre = :id and contrasenia = :contra ', [ 'id' => $username, 'contra' => $password]);
+      
+      $tipoUsuario= $checkLogin[0]->tipo_puesto_id_puesto;
 
-      $checkLogin = DB::table('usuario')->where(['nombre'=>$username,'contrasenia'=>$password])->get();
-      if(count($checkLogin)  >0)
-      {
-       echo "Login SuccessFull<br/>";
-      }
-      else
-      {
-       return redirect('/ERROR1');
-      }
+      if ( $checkLogin>0) {
+
+
+	      if ($tipoUsuario==1) {
+	      	return redirect('/Admin');
+
+	      }else if ($tipoUsuario==2) {
+
+      // AQUÍ VA EL OPERARIOR
+
+
+	      }else if ($tipoUsuario==3) {
+
+	      }else {
+      // AQUÍ VA EL CLIENTE
+
+	      }
+
+  }
+       echo $tipoUsuario;
+
   }
 
   public function registrar(Request $req)
@@ -42,7 +58,7 @@ class Controller extends BaseController
     if ($password==$pass1){ 
 
 	 DB::table('usuario')->insert(['nombre'=>$username,'Apellido'=>$lasname,'contrasenia'=>$password,'email'=>$email,
-	      	'tipo_puesto_id_puesto'=>2]);
+	      	'tipo_puesto_id_puesto'=>3]);
 	     
 	     return redirect('/Login');
 
