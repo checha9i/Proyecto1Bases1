@@ -36,6 +36,7 @@ class Controller extends BaseController
       $lasname= $req->input('last_name');
       $password = $req->input('password');
       $email= $req->input('email');
+      $Salario= $req->input('Salario');
       $pass1= $req->input('password_confirmation');
 
     if ($password==$pass1){ 
@@ -52,7 +53,46 @@ class Controller extends BaseController
   
   }
 
+ public function registrarop(Request $req)
+     {
+     	  $username = $req->input('first_name');
+	      $lasname= $req->input('last_name');
+	      $password = $req->input('password');
+	      $email= $req->input('email');
+	      $Salario= $req->input('Salario');
+	      $pass1= $req->input('password_confirmation');
 
+	        if ($password==$pass1){ 
+
+	      	 DB::table('usuario')->insert(['nombre'=>$username,'Apellido'=>$lasname,'contrasenia'=>$password,'email'=>$email,'salario'=>$Salario,
+	      	      	'tipo_puesto_id_puesto'=>2]);
+	      	     
+	      	     return redirect('/Login');
+
+	          }else {
+
+	          	 return redirect('/ERROR');
+	          }
+
+
+     }
+  
+public function eliminarOperadores(Request $req)
+     {
+     	     	 
+     	$user4=DB::select('select * from usuario');
+
+
+		return view('Auth/Eop',compact('user4'));
+     	
+   	 }
+
+ public function destroy($id) {
+      DB::delete('delete from usuario where id_usu = ?',[$id]) ;
+
+      echo "Record deleted successfully.<br/>";
+      echo '<a href="/Admin">Click Here</a> to go back.';
+   }
 
 
 }

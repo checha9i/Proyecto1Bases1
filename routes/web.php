@@ -20,6 +20,18 @@ Route::get('/Login', function (){
   return view('Auth/Login');
 });
 
+Route::get('/Admin', function (){
+
+  return view('Auth/Admin');
+});
+Route::get('/CrearOperador', function (){
+
+  return view('Auth/CrearOperador');
+});
+
+
+
+
 Route::get('/ERROR', function (){
 
   return view('Auth/Error');
@@ -34,6 +46,14 @@ Route::get('/ERROR1', function (){
 Route::get('/Register', function () {
     return view('Auth/Register');
 });
+
+Route::get('/Eliop', function () { return view('Auth/Eli');});
+
+Route::post('/EliminarOp','Controller@eliminarOperadores');
+
+Route::get('delete/{id}','Controller@destroy') ;
+
+
 Route::get('/QForm', function () {
     return view('Questions/QuestionForm');
 });
@@ -43,6 +63,9 @@ Route::post('/loginme','Controller@login');
     return view('Questions/FVForm');
 });
 Route::post('/regisme','Controller@registrar');
+Route::post('/regisop','Controller@registrarop');
+
+
 
 Route::get('/Validate', function () {
     return view('Questions/ValidarPregunta');
