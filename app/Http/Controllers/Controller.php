@@ -52,28 +52,22 @@ class Controller extends BaseController
 
   }
 
+  public function CrearFormulario(Request $req)
+     {
+      $id_examen = $req->input('NForm');
+      $fecha= $req->input('');
+      $duracion = $req->input('Duracion');
+      $tipo_evaluacion= $req->input('email');
 
-  public function Opciones(Request $req)
-  	{
-  		$Opcion = array();
-  		for ($i = 0; $i < Session::get('Opciones'); $i++)
-  		{
-  			$Opcion[$i] = $req->input('opcion'.$i);
-  		}
-  		if ($Opcion[0] != null)
-  		{
-  			for ($i = 0; $i < Session::get('Opciones'); $i++)
-  			{
-  				$data = array('Pregunta'=>Session::get('Pregunta'), 'Tipo'=>Session::get('TipoPregunta'), 'Evaluacion'=>Session::get('NivelPregunta'), 'Respuesta'=>$Opcion[$i]);
-  				DB::table('TempEvaluacion')->insert($data);
-  			}
-  			return view('IndexABC');
-  		}
-  		else
-  		{
-  			return view('/Opciones');
-  		}
-  	}
+	 DB::table('usuario')->insert(['nombre'=>$username,'Apellido'=>$lasname,'contrasenia'=>$password,'email'=>$email,
+	      	'tipo_puesto_id_puesto'=>2]);
+
+DB:table('select * from formulario')
+	     return redirect('/Login');
+
+
+  }
+
 
 
 

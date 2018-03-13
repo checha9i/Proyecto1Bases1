@@ -51,3 +51,6 @@ Route::get('/Validate', function () {
 Route::get('/Create', function () {
     return view('Questions/CrearPregunta');
 });
+Route::get('/Operador', function () {
+    return view('Questions/Operador');
+});

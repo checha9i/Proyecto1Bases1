@@ -142,8 +142,3 @@ else if(x==="Final"){
  }
 
 }
-
-function AgregarPregunta() {
-var opcion1 = document.createElement("LI");
-
-}
