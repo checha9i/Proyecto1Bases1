@@ -82,7 +82,7 @@
                             			 		<form role="form" action="/regisme" method="post" class="Register-form">
                                       	<div class="panel-body">
                             			    	      <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                           
+
                             			    			<div class="row">
                             			    				<div class="col-xs-6 col-sm-6 col-md-6">
                             			    					<div class="form-group">
@@ -108,7 +108,7 @@
                             			    					</div>
                             			    				</div>
                             			    				<div class="col-xs-6 col-sm-6 col-md-6">
-                            			    					
+
                             			    						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirmar Contraseña">
                             			    					</div>
                             			    				</div>
@@ -124,19 +124,19 @@
                                 		</div>
                                 	</div>
                                 </div>
-                              
+
 
                               <div class="container">
                                 <a href="/Login"> Ya tienes una cuenta? Inicia Sesion... </a>
                               </div>
-                           
+
 
 
               </div>
           </div>
 
       </div>
-    </div>
+    
 
 
 
