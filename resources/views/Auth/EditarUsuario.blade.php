@@ -83,7 +83,7 @@
                             			 		
                                         
                                         @if(!empty($user))
-                                        <form role="form" action="/editar/{{$user[0]->id_usu}}" method="get" class="Register-form">
+                                        <form role="form" action="/editar/{{$user[0]->id_usu}}" method="gets" class="Register-form">
                                           <p>
                                             <input value ="{{$user[0]->nombre}}" type="text" id="name" name="name" placeholder="Nombre">
                                             <input type="submit" value="Actualizar" >

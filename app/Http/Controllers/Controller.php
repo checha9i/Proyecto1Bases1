@@ -122,6 +122,7 @@ public function eliminarOperadores(Request $req)
  	if ($editar->nombre != null)
  	{
  		echo 'update';
+ 		// return redirect('/EliminarOp');
  	}
  	else
  	{
