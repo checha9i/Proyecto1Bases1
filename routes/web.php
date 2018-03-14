@@ -39,9 +39,18 @@ Route::get('/QForm', function () {
 });
 Route::post('/loginme','Controller@login');
 
+Route::get('/CrearForm', function () {
+    return view('Questions/CrearFormulario');
+});
+
+Route::post('/CrearFormulario','Controller@CrearFormulario');
+
   Route::get('/FVForm', function () {
     return view('Questions/FVForm');
 });
+Route::get('/AgregarPregunta','Controller@AgregarPregunta');
+Route::post('/PrimeraPregunta','Controller@AgregarPrimeraPregunta');
+
 Route::post('/regisme','Controller@registrar');
 
 Route::get('/Validate', function () {
@@ -51,6 +60,9 @@ Route::get('/Validate', function () {
 Route::get('/Create', function () {
     return view('Questions/CrearPregunta');
 });
+
 Route::get('/Operador', function () {
     return view('Questions/Operador');
 });
+
+Route::get('/GuardarPreguntaDina','Controller@GuardarPreguntaDina');

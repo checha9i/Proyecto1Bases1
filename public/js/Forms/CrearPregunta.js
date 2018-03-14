@@ -12,7 +12,7 @@ if(x==="FV"){
         var f = document.createElement("INPUT");
         f.setAttribute("type", "checkbox");
         f.setAttribute("value", "Falso");
-        f.setAttribute("name", "CHECKBOX_2");
+        f.setAttribute("name", "CHECKBOX_1");
         var div1 = document.createElement("DIV");
         var label1= document.createElement("LABEL");
                 label1.setAttribute("for", "checkbox");
@@ -28,7 +28,7 @@ if(x==="FV"){
   var v = document.createElement("INPUT");
   v.setAttribute("type", "checkbox");
   v.setAttribute("value", "Verdadero");
-  v.setAttribute("name", "CHECKBOX_1");
+  v.setAttribute("name", "CHECKBOX_2");
   var label2= document.createElement("LABEL");
           label2.setAttribute("for", "checkbox");
           label2.innerHTML="VERDADERO";
@@ -52,10 +52,10 @@ while (list.firstChild) {
         f.setAttribute("type", "checkbox");
         f.setAttribute("name", "CHECKBOX_1");
         var div1 = document.createElement("DIV");
-        var op1 = document.createElement("TEXTAREA");
-        op1.setAttribute("rows", "1");
-        op1.setAttribute("cols", "20");
-        op1.setAttribute("id", "resmult1");
+        var op1 = document.createElement("INPUT");
+        op1.setAttribute("type", "text");
+        op1.setAttribute("value", "");
+        op1.setAttribute("name", "resmult1");
         div1.className='checkbox';
         div1.appendChild(f);
         div1.appendChild(op1);
@@ -67,10 +67,10 @@ while (list.firstChild) {
   var v = document.createElement("INPUT");
   v.setAttribute("type", "checkbox");
   v.setAttribute("name", "CHECKBOX_1");
-  var op2 = document.createElement("TEXTAREA");
-  op2.setAttribute("rows", "1");
-  op2.setAttribute("cols", "20");
-  op2.setAttribute("id", "resmult2");
+  var op2 = document.createElement("INPUT");
+  op2.setAttribute("type", "text");
+  op2.setAttribute("value", "");
+  op2.setAttribute("name", "resmult2");
   var div2 = document.createElement("DIV");
   div2.className='checkbox';
   div2.appendChild(v);
@@ -83,10 +83,10 @@ while (list.firstChild) {
           var op3 = document.createElement("INPUT");
           op3.setAttribute("type", "checkbox");
           op3.setAttribute("name", "CHECKBOX_3");
-          var res3 = document.createElement("TEXTAREA");
-          res3.setAttribute("rows", "1");
-          res3.setAttribute("cols", "20");
-          res3.setAttribute("id", "resmult3");
+          var res3 = document.createElement("INPUT");
+          res3.setAttribute("type", "text");
+          res3.setAttribute("value", "");
+          res3.setAttribute("name", "resmult3");
           var div3 = document.createElement("DIV");
           div3.className='checkbox';
           div3.appendChild(op3);
@@ -99,10 +99,10 @@ while (list.firstChild) {
     var op4 = document.createElement("INPUT");
     op4.setAttribute("type", "checkbox");
     op4.setAttribute("name", "CHECKBOX_4");
-    var res4 = document.createElement("TEXTAREA");
-    res4.setAttribute("rows", "1");
-    res4.setAttribute("cols", "20");
-    res4.setAttribute("id", "resmult4");
+    var res4 = document.createElement("INPUT");
+    res4.setAttribute("type", "text");
+    res4.setAttribute("value", "");
+    res4.setAttribute("name", "resmult4");
     var div4 = document.createElement("DIV");
     div4.className='checkbox';
     div4.appendChild(op4);
@@ -118,10 +118,10 @@ while (list.firstChild) {
    }
   var opcion1 = document.createElement("LI");
   opcion1.className='list-group-item';
-  var op1 = document.createElement("TEXTAREA");
-  op1.setAttribute("rows", "2");
-  op1.setAttribute("cols", "100");
-  op1.setAttribute("id", "resdirecta");
+  var op1 = document.createElement("INPUT");
+  op1.setAttribute("type", "text");
+  op1.setAttribute("value", "");
+  op1.setAttribute("name", "resDirecta");
 
   var div1 = document.createElement("DIV");
   div1.className='TEXTAREA';

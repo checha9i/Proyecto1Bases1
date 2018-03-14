@@ -57,7 +57,7 @@
                 <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 text">
   </br></br></br></br></br></br>
-                        <h1><strong>OPERADOR</strong></h1>
+                        <h1><strong>Crear Formulario</strong></h1>
 
                     </div>
                 </div>
@@ -67,11 +67,17 @@
                                   <div class="row centered-form">
                                   <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
                                     <div class="panel panel-default">
+                                      <form role="form" action="/CrearFormulario" method="post">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
+                                    </br>
+                                      <p>Nombre del Formulario</p>
+                                      <input type="text" name="NForm" class="form-control" placeholder="Nombre Formulario"><br/>
+                                      </br>
+                                    
+                                               <input type="submit" name="crear-form" value="CrearForm">
+                                        </form>
 
-                                    <a href="/CrearForm">  <p>Crear Formulario</p></a>
-        <a href="/BorrarFormulario">  <p>Borrar Formulario</p></a>
-                <a href="/RegistroUsuario">  <p>Comenzar Flujo de Trabajo</p></a>
 
                                       </div>
                                     </div>

@@ -1,23 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php $mysqli = new mysqli('localhost', 'javier', '1234', 'basesproyecto1');
-?>
-  <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <head>
 
     <title>Call-Center e-Sports</title>
 
-    <!-- Bootstrap core CSS -->
 
 <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
 <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="css/business-frontpage.css" rel="stylesheet">
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+
 <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 
 
@@ -50,45 +43,31 @@
         </div>
       </div>
     </nav>
-    <div class="top-content">
 
-        <div class="inner-bg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-8 col-sm-offset-2 text">
-  </br></br></br></br></br></br>
-                        <h1><strong>OPERADOR</strong></h1>
+</br>
+</br>
+</br>
+</br>
+</br>
+<div class="container">
+    <form role="form" action="/PrimeraPregunta" method="post">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+  <p>Crear Pregunta</p>
 
-                    </div>
-                </div>
+<input type="textarea" name="Pregunta" class="form-control" rows="4"  ><br/>
 
-                <div class="row">
-                          <div class="container">
-                                  <div class="row centered-form">
-                                  <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-                                    <div class="panel panel-default">
+<p>Respuesta</p>
+  <input type="text" class="form-control"  name="Respuesta" rows="2" ></br>
 
-
-                                    <a href="/CrearForm">  <p>Crear Formulario</p></a>
-        <a href="/BorrarFormulario">  <p>Borrar Formulario</p></a>
-                <a href="/RegistroUsuario">  <p>Comenzar Flujo de Trabajo</p></a>
-
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-
-
-
-
-
-
-            </div>
-        </div>
-
-    </div>
-
+  <p>Respuesta Buena</p>
+  <input type="text" name="Buena" class="form-control" placeholder="A Donde ir"><br/>
+  </br>
+  <p>Respuesta Mala</p>
+  <input type="text" name="Mala" class="form-control" placeholder="A Donde ir"><br/>
+  </br>
+ <input type="submit" name="PrimeraPregunta" value="Crear Primera Pregunta">
+</form>
+</div>
 
 
 
