@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use DB;
+use Session;
 
 class Controller extends BaseController
 {
@@ -27,6 +28,7 @@ class Controller extends BaseController
 
 
 	      if ($tipoUsuario==1) {
+	      					
 	      	return redirect('/Admin');
 
 	      }else if ($tipoUsuario==2) {
@@ -109,6 +111,29 @@ public function eliminarOperadores(Request $req)
       echo "Record deleted successfully.<br/>";
       echo '<a href="/Admin">Click Here</a> to go back.';
    }
+
+
+ public function edit( Request $req,$id=null) {
+
+ 	$editar = DB::table('usuario')-> where (['id_usu'=>$id])->get();
+
+ 	$editar->nombre = $req->input('name');
+
+ 	if ($editar->nombre != null)
+ 	{
+ 		echo 'update';
+ 	}
+ 	else
+ 	{
+ 		return View('Auth/EditarUsuario')->with('user', $editar);
+ 	}
+
+
+ }
+
+
+
+
 
 
 }

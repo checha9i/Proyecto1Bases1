@@ -52,6 +52,10 @@ Route::get('/Eliop', function () { return view('Auth/Eli');});
 Route::post('/EliminarOp','Controller@eliminarOperadores');
 
 Route::get('delete/{id}','Controller@destroy') ;
+Route::get('editar/{id}','Controller@edit') ;
+
+
+
 
 
 Route::get('/QForm', function () {

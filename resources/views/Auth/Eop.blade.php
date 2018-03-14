@@ -109,7 +109,7 @@
                           <td>{{ $u->id_usu }}</td>
                           <td>{{ $u->nombre }}</td>
                           <td> <a href="/delete/{{$u->id_usu}}" class="btn btn_danger">  Eliminar</a>
-
+                          <td> <a href="/editar/{{$u->id_usu}}" class="btn btn_success">  Editar</a>
                        </tr>
                        @endforeach
                     </table>
