@@ -72,11 +72,6 @@ class Controller extends BaseController
 
   }
 
-  public function CrearFormulario(Request $req)
-     {
-       $date = new \DateTime();
-      $NombreF = $req->input('NForm');
-
  public function registrarop(Request $req)
      {
      	  $username = $req->input('first_name');
@@ -140,6 +135,11 @@ public function eliminarOperadores(Request $req)
 
 
 
+
+public function CrearFormulario(Request $req)
+   {
+     $date = new \DateTime();
+    $NombreF = $req->input('NForm');
       if ($NombreF != null)
       		{
 
