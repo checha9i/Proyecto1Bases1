@@ -68,6 +68,7 @@
                                   <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
                                     <div class="panel panel-default">
 
+
                                       <form role="form" action="/CrearForm" method="post" class="login-form">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                       <input type="submit"  class="btn-primary btn-md" name="crear" value="Crear Formulario">
