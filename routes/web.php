@@ -65,7 +65,7 @@ Route::get('/QForm', function () {
 });
 Route::post('/loginme','Controller@login');
 
-Route::get('/CrearForm', function () {
+Route::post('/CrearForm', function () {
     return view('Questions/CrearFormulario');
 });
 
