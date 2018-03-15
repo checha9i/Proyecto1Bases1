@@ -19,16 +19,16 @@ class Controller extends BaseController
      {
       $username = $req->input('form-username');
       $password = $req->input('form-password');
-      
+
       $checkLogin = DB::select('select * from usuario where nombre = :id and contrasenia = :contra ', [ 'id' => $username, 'contra' => $password]);
-      
+
       $tipoUsuario= $checkLogin[0]->tipo_puesto_id_puesto;
 
       if ( $checkLogin>0) {
 
 
 	      if ($tipoUsuario==1) {
-	      					
+
 	      	return redirect('/Admin');
 
 	      }else if ($tipoUsuario==2) {
@@ -61,7 +61,7 @@ class Controller extends BaseController
 
 	 DB::table('usuario')->insert(['nombre'=>$username,'Apellido'=>$lasname,'contrasenia'=>$password,'email'=>$email,
 	      	'tipo_puesto_id_puesto'=>3]);
-	     
+
 
 	     return redirect('/Login');
 
@@ -72,11 +72,6 @@ class Controller extends BaseController
 
   }
 
-  public function CrearFormulario(Request $req)
-     {
-       $date = new \DateTime();
-      $NombreF = $req->input('NForm');
-
  public function registrarop(Request $req)
      {
      	  $username = $req->input('first_name');
@@ -86,11 +81,11 @@ class Controller extends BaseController
 	      $Salario= $req->input('Salario');
 	      $pass1= $req->input('password_confirmation');
 
-	        if ($password==$pass1){ 
+	        if ($password==$pass1){
 
 	      	 DB::table('usuario')->insert(['nombre'=>$username,'Apellido'=>$lasname,'contrasenia'=>$password,'email'=>$email,'salario'=>$Salario,
 	      	      	'tipo_puesto_id_puesto'=>2]);
-	      	     
+
 	      	     return redirect('/Login');
 
 	          }else {
@@ -100,15 +95,15 @@ class Controller extends BaseController
 
 
      }
-  
+
 public function eliminarOperadores(Request $req)
      {
-     	     	 
+
      	$user4=DB::select('select * from usuario');
 
 
 		return view('Auth/Eop',compact('user4'));
-     	
+
    	 }
 
  public function destroy($id) {
@@ -140,6 +135,11 @@ public function eliminarOperadores(Request $req)
 
 
 
+
+public function CrearFormulario(Request $req)
+   {
+     $date = new \DateTime();
+    $NombreF = $req->input('NForm');
       if ($NombreF != null)
       		{
 

@@ -74,7 +74,7 @@
                                       <p>Nombre del Formulario</p>
                                       <input type="text" name="NForm" class="form-control" placeholder="Nombre Formulario"><br/>
                                       </br>
-                                    
+
                                                <input type="submit" name="crear-form" value="CrearForm">
                                         </form>
 
