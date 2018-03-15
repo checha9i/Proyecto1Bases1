@@ -22,10 +22,10 @@ class Controller extends BaseController
 
       $checkLogin = DB::select('select * from usuario where nombre = :id and contrasenia = :contra ', [ 'id' => $username, 'contra' => $password]);
 
+
+
+      if ( $checkLogin!=null) {
       $tipoUsuario= $checkLogin[0]->tipo_puesto_id_puesto;
-
-      if ( $checkLogin>0) {
-
 
 	      if ($tipoUsuario==1) {
 
@@ -37,14 +37,17 @@ class Controller extends BaseController
 
 
 	      }else if ($tipoUsuario==3) {
-
+  	return redirect('/UsuarioPrincipal');
 	      }else {
       // AQUÍ VA EL CLIENTE
+echo "<script type='text/javascript'>alert('Error no existe el usuario');</script>";
+return redirect('/#sign-in');
 
 	      }
 
   }
-       echo $tipoUsuario;
+echo "<script type='text/javascript'>alert('Error  No existe el usuario');</script>";
+  return redirect('/#sign-in');
 
   }
 
@@ -258,5 +261,18 @@ public function eliminarOperadores(Request $req)
 
 
          }
+
+
+//Reportes
+public function Reporte1(Request $req)
+     {
+
+       $report=DB::select('select C.nombre, C.edad from basesproyecto1.cliente as C where C.edad <18;');
+
+
+   return view('APrincipales/Reporte1',compact('report'));
+
+      }
+
 
 }
