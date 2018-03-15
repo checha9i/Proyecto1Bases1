@@ -32,7 +32,7 @@ class Controller extends BaseController
 	      	return redirect('/Admin');
 
 	      }else if ($tipoUsuario==2) {
-
+  	return redirect('/Operador');
       // AQUÍ VA EL OPERARIOR
 
 

@@ -34,9 +34,7 @@ body, html {
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
       <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
-      <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> TEAM</a>
-      <a href="#work" class="w3-bar-item w3-button"><i class="fa fa-th"></i> WORK</a>
-      <a href="#SIGN-UP" class="w3-bar-item w3-button"><i class="fa fa-user"></i> Registrarse</a>
+
       <a href="#sign-in" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i> Iniciar Sesion</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
@@ -51,7 +49,7 @@ body, html {
 <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
   <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
-  <a href="#SIGN-UP" onclick="w3_close()" class="w3-bar-item w3-button">Registrarse</a>
+
   <a href="#sign-in" onclick="w3_close()" class="w3-bar-item w3-button">Iniciar Sesion</a>
 </nav>
 
@@ -59,9 +57,8 @@ body, html {
 <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
   <div class="w3-display-left w3-text-white" style="padding:48px">
     <span class="w3-jumbo w3-hide-small">Crea formularios </span><br>
-    <span class="w3-xxlarge w3-hide-large w3-hide-medium">Crea formularios </span><br>
-    <span class="w3-large">Facil y Rapido solo inicia sesion y empieza.</span>
-    <p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn more and start today</a></p>
+    <span class="w3-xxlarge w3-hide-large w3-hide-medium">Call-Center e-Sports </span><br>
+    <p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Sobre Nosotros</a></p>
   </div>
   <div class="w3-display-bottomleft w3-text-grey w3-large" style="padding:24px 48px">
     <i class="fa fa-facebook-official w3-hover-opacity"></i>
@@ -75,119 +72,34 @@ body, html {
 
 <!-- About Section -->
 <div class="w3-container" style="padding:128px 16px" id="about">
-  <h3 class="w3-center">ABOUT THE COMPANY</h3>
-  <p class="w3-center w3-large">Key features of our company</p>
+  <h3 class="w3-center">About</h3>
+  <p class="w3-center w3-large">E-Sports</p>
   <div class="w3-row-padding w3-center" style="margin-top:64px">
     <div class="w3-quarter">
       <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
-      <p class="w3-large">Responsive</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+      <p class="w3-large">Mision</p>
+      <p>Somos una empresa comprometida con tomar la opinion de los clientes acerca de otras empresas afiliadas, teniendo como resultado mejor atencion al cliente.</p>
     </div>
     <div class="w3-quarter">
       <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Passion</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+      <p class="w3-large">Vision</p>
+      <p>Ser la empresa lider a nivel nacional e internacional en el ambito de Call-Center.</p>
     </div>
     <div class="w3-quarter">
       <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Design</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+      <p class="w3-large">Como ser parte de nosotros </p>
+      <p>Comunicate al telefono  <i class="fa fa-phone"></i>:     2345-6781</p>
     </div>
     <div class="w3-quarter">
       <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
       <p class="w3-large">Support</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+      <p>Para cualquier consulta escribenos un correo a </br> <i class="fa fa-envelope"></i><a href="#ABOUT" > e-sports@e-sports.com</a></p>
     </div>
   </div>
 </div>
 
-<!-- Promo Section - "We know design" -->
-<div class="w3-container w3-light-grey" style="padding:128px 16px">
-  <div class="w3-row-padding">
-    <div class="w3-col m6">
-      <h3>We know design.</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore.</p>
-      <p><a href="#work" class="w3-button w3-black"><i class="fa fa-th"> </i> View Our Works</a></p>
-    </div>
-    <div class="w3-col m6">
-      <img class="w3-image w3-round-large" src="/w3images/phone_buildings.jpg" alt="Buildings" width="700" height="394">
-    </div>
-  </div>
-</div>
-
-<!-- Pricing Section -->
-<div class="w3-container w3-center" style="padding:128px 16px" id="SIGN-UP">
-  <div class="top-content">
-
-      <div class="inner-bg">
-          <div class="container">
-              <div class="row">
-                  <div class="col-sm-8 col-sm-offset-2 text">
-
-                      <div class="description ">
-                        <p>
-                        Ingrese sus datos.
-                       </p>
-                      </div>
-                  </div>
-              </div>
-              <div class="row">
-                        <div class="container">
-                                <div class="row centered-form">
-                                <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-                                  <div class="panel panel-default">
-                                      <h3 class="panel-title ">Registrate </br><small>Ingresa tus datos</small></h3>
-                                    <div class="panel-body">
-                                      <form role="form">
-                                        <div class="row">
-                                          <div class="col-xs-6 col-sm-6 col-md-6">
-                                            <div class="form-group">
-                                              <input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name">
-                                            </div>
-                                          </div>
-                                          <div class="col-xs-6 col-sm-6 col-md-6">
-                                            <div class="form-group">
-                                              <input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name">
-                                            </div>
-                                          </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                          <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
-                                        </div>
-
-                                        <div class="row">
-                                          <div class="col-xs-6 col-sm-6 col-md-6">
-                                            <div class="form-group">
-                                              <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
-                                            </div>
-                                          </div>
-                                          <div class="col-xs-6 col-sm-6 col-md-6">
-                                            <div class="form-group">
-                                              <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password">
-                                            </div>
-                                          </div>
-                                        </div>
-
-                                        <input type="submit" value="Register" class="btn btn-info btn-block">
-
-                                      </form>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-<div class="container">
-<a> Ya tienes una cuenta? Inicia Sesion! </a>
-</div>
 
 
-          </div>
-      </div>
-
-  </div>
-</div>
-</div>
 
 <!-- Contact Section -->
 <div class="w3-container " style="padding:128px 16px" id="sign-in">
