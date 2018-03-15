@@ -3,9 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Tipos</title>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-
+	<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<style>
 		body {
 			width: 600px;
