@@ -68,11 +68,20 @@
                                   <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
                                     <div class="panel panel-default">
 
-
-                                    <a href="/CrearForm">  <p>Crear Formulario</p></a>
-        <a href="/BorrarFormulario">  <p>Borrar Formulario</p></a>
-                <a href="/RegistroUsuario">  <p>Comenzar Flujo de Trabajo</p></a>
-
+                                      <form role="form" action="/CrearForm" method="post" class="login-form">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                      <input type="submit"  class="btn-primary btn-md" name="crear" value="Crear Formulario">
+                                     </form>
+</br>
+                                    <form role="form" action="/EliminarFormulario" method="post" class="login-form">
+                                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <input type="submit"  class="btn-danger btn-md" name="eli" value="Eliminar Formulario">
+                                   </form>
+</br>
+                <form role="form" action="/RegistroUsuario" method="post" class="login-form">
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="submit"  class="btn-success btn-md" name="flujo" value="Comenzar Flujo de Trabajo">
+               </form>
                                       </div>
                                     </div>
                                   </div>

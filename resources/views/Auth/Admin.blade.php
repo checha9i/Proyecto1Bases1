@@ -32,7 +32,7 @@
     </head>
 
     <body>
-        
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
@@ -59,30 +59,6 @@
     </nav>
 
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="/">Call Center E-Sports</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="/Login"><i class="fa fa-sign-in"></i> Log in</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="/Register">Sign Up</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
         <!-- Top content -->
         <div class="top-content">
 
@@ -91,27 +67,27 @@
                     <div class="row">
                        <form role="form" action="/CrearOperador" method="get" class="login-form">
                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                           <input type="submit"  name="login" value="Crear Operador">
-                          </form> 
-                      
+                           <input type="submit"  class="btn-primary btn-md"  name="login" value="Crear Operador">
+                          </form>
+
 
                         <form role="form" action="/EliminarOp" method="post" class="login-form">
                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="submit"  name="eli" value="Eliminar Operador">
-                       </form> 
-                    
+                        <input type="submit"  name="eli" class="btn-danger btn-md" value="Eliminar Operador">
+                       </form>
+
                         <!-- <li><a href="/Eliop">Regresar</a></li> -->
 
                     </div>
-                   
-               
+
+
                 </div>
             </div>
 
         </div>
 
 
-   
+
 
     </body>
 
