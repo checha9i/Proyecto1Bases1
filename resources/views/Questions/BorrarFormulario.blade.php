@@ -73,7 +73,7 @@
                      <td>{{ $u->id_examen }}</td>
                      <td>{{ $u->NombreF }}</td>
                      <td> <a href="/deleteF/{{$u->id_examen}}" class="btn btn_danger">  Eliminar</a>
-            
+
                   </tr>
                   @endforeach
             </table>

@@ -134,6 +134,8 @@ public function eliminarOperadores(Request $req)
         	 }
 
  public function destroy($id) {
+
+
       DB::delete('delete from usuario where id_usu = ?',[$id]) ;
 
       echo "Record deleted successfully.<br/>";
@@ -144,6 +146,7 @@ public function eliminarOperadores(Request $req)
 
 
  public function destroyF($id) {
+      DB::delete('delete * from pregunta where id_examen = ?',[$id]) ;
       DB::delete('delete from formulario where id_examen = ?',[$id]) ;
 
       echo "Record deleted successfully.<br/>";
