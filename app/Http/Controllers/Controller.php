@@ -32,7 +32,7 @@ class Controller extends BaseController
 	      	return redirect('/Admin');
 
 	      }else if ($tipoUsuario==2) {
-
+  	return redirect('/Operador');
       // AQUÍ VA EL OPERARIOR
 
 
@@ -68,6 +68,7 @@ class Controller extends BaseController
         }
 
   }
+
  public function registrarop(Request $req)
      {
      	  $username = $req->input('first_name');
@@ -102,7 +103,19 @@ public function eliminarOperadores(Request $req)
 
    	 }
 
+     public function EliminarFormulario(Request $req)
+          {
+
+          	$Formu=DB::select('select * from formulario');
+
+
+     		return view('Questions/BorrarFormulario',compact('Formu'));
+
+        	 }
+
  public function destroy($id) {
+
+
       DB::delete('delete from usuario where id_usu = ?',[$id]) ;
 
       echo "Record deleted successfully.<br/>";
@@ -110,26 +123,35 @@ public function eliminarOperadores(Request $req)
    }
 
 
+
+
+ public function destroyF($id) {
+      DB::delete('delete * from pregunta where id_examen = ?',[$id]) ;
+      DB::delete('delete from formulario where id_examen = ?',[$id]) ;
+
+      echo "Record deleted successfully.<br/>";
+      echo '<a href="/Operador">Click Here</a> to go back.';
+   }
+
+
  public function edit( Request $req,$id=null) {
 
- 	$editar = DB::table('usuario')-> where (['id_usu'=>$id])->get();
+  $editar = DB::table('usuario')-> where (['id_usu'=>$id])->get();
 
- 	$editar->nombre = $req->input('name');
+  $editar->nombre = $req->input('name');
 
- 	if ($editar->nombre != null)
- 	{
- 		echo 'update';
- 		// return redirect('/EliminarOp');
- 	}
- 	else
- 	{
- 		return View('Auth/EditarUsuario')->with('user', $editar);
- 	}
+  if ($editar->nombre != null)
+  {
+    echo 'update';
+    // return redirect('/EliminarOp');
+  }
+  else
+  {
+    return View('Auth/EditarUsuario')->with('user', $editar);
+  }
 
 
  }
-
-
 
 
 
