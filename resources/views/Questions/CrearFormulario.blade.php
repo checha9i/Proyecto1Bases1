@@ -74,7 +74,10 @@
                                       <p>Nombre del Formulario</p>
                                       <input type="text" name="NForm" class="form-control" placeholder="Nombre Formulario"><br/>
                                       </br>
-
+                                    
+									<p>Cantidad Preguntas de Formulario</p>
+                                      <input type="text" name="Num" class="form-control" placeholder="Nombre Formulario"><br/>
+                                      </br>
                                                <input type="submit" name="crear-form" value="CrearForm">
                                         </form>
 

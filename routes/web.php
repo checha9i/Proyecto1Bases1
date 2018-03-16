@@ -74,8 +74,6 @@ Route::post('/CrearFormulario','Controller@CrearFormulario');
 });
 Route::get('/AgregarPregunta','Controller@AgregarPregunta');
 Route::post('/PrimeraPregunta','Controller@AgregarPrimeraPregunta');
-
-Route::post('/regisme','Controller@registrar');
 Route::post('/regisop','Controller@registrarop');
 
 
@@ -93,3 +91,10 @@ Route::get('/Operador', function () {
 });
 
 Route::get('/GuardarPreguntaDina','Controller@GuardarPreguntaDina');
+Route::get('/Register','Controller@registrar');
+Route::get('/LeerPublicacion/{id}', array( 'as' => 'LeerPublicacion', 'uses' => 'Controller@Leer'));
+Route::get('/LeerPublicacion2/{id}', 'Controller@Leer');
+
+
+
+
