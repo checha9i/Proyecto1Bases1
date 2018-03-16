@@ -1,145 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 
-    <head>
+    <style>
+        body {
+            width: 550px;
+            margin: 50px auto;
+        }
+        .badge {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registro Usuario</h1>
 
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Registro</title>
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h4>Datos Personales del Cliente</h4>
+        </div>
 
-        <!-- CSS -->
-
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-		    <link rel="stylesheet" href="css/form-elements.css">
-        <link rel="stylesheet" href="css/style.css">
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-
-        <!-- Favicon and touch icons -->
-        <link rel="shortcut icon" href="ico/favicon.png">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
-
-    </head>
-
-    <body>
-
-          <!-- Navigation -->
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <div class="container">
-              <a class="navbar-brand" href="/">Call Center E-Sports</a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="/">Home
-                      <span class="sr-only">(current)</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link " href="/Login"><i class="fa fa-sign-in"></i> Log in</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-
-
-
-      <div class="top-content">
-
-          <div class="inner-bg">
-              <div class="container">
-                  <div class="row">
-                      <div class="col-sm-8 col-sm-offset-2 text">
-                          <h1><strong>Call Center E-Sports</strong></h1>
-                          <div class="description">
-                            <p>
-                            Ingrese sus datos....
-                           </p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="row">
-                            <div class="container">
-                                    <div class="row centered-form">
-                                    <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-                                    	<div class="panel panel-default">
-                                    		<div class="panel-heading">
-                            			    		<h3 class="panel-title">Registrate </h3>
-                            			 			</div>
-                            			 		<form role="form" action="/regisme" method="post" class="Register-form">
-                                      	<div class="panel-body">
-                            			    	      <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                            			    			<div class="row">
-                            			    				<div class="col-xs-6 col-sm-6 col-md-6">
-                            			    					<div class="form-group">
-
-                            			                <input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="Primer Nombre">
-                            			    					</div>
-                            			    				</div>
-                            			    				<div class="col-xs-6 col-sm-6 col-md-6">
-                            			    					<div class="form-group">
-                            			    						<input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Apellidos">
-                            			    					</div>
-                            			    				</div>
-                            			    			</div>
-
-                            			    			<div class="form-group">
-                            			    				<input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email">
-                            			    			</div>
-
-                            			    			<div class="row">
-                            			    				<div class="col-xs-6 col-sm-6 col-md-6">
-                            			    					<div class="form-group">
-                            			    						<input type="password" name="password" id="password" class="form-control input-sm" placeholder="Contraseñia">
-                            			    					</div>
-                            			    				</div>
-                            			    				<div class="col-xs-6 col-sm-6 col-md-6">
-
-                            			    						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirmar Contraseña">
-                            			    					</div>
-                            			    				</div>
-                            			    		</div>
-
-                            			    			<input type="submit" value="Registrarse" class="btn btn-info btn-block">
-
-                            			    		</form>
-
-
-                            			    	</div>
-                            	    		</div>
-                                		</div>
-                                	</div>
-                                </div>
-
-
-                              <div class="container">
-                                <a href="/Login"> Ya tienes una cuenta? Inicia Sesion... </a>
-                              </div>
-
-
-
-              </div>
-          </div>
-
-      </div>
-    
-
-
-
-  </body>
-
+        <div class="panel-body">
+            <center>
+                 <form action="/Register" method="get">
+                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                     <input type="text" id="name" name="name" placeholder="Nombre" class="form-control" required>
+					 <input type="text" id="edad" name="edad" placeholder="Edad" class="form-control" required>
+					 <input type="text" id="dir" name="dir" placeholder="Direccion" class="form-control" required>
+					 <input type="text" id="tel" name="tel" placeholder="Telefono" class="form-control" required>
+					 <input type="email" name="corr" id="corr" placeholder="Email" class="form-control" required>
+					 <p>
+				     <select name="SelectForm" id="SelectForm">
+					 <option value="">Elija Formulario</option>
+					 @foreach($pregs as $preg)
+						<option value="{{$preg->id_examen}}">{{$preg->NombreF}}</option>
+					 @endforeach
+					 </select>
+					 </p>
+                     <input type="submit" name="Registrar" value="Registrar">
+                 </form>		 
+             </center>
+        </div>
+    </div>
+</body>
 </html>
