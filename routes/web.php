@@ -69,6 +69,9 @@ Route::post('/Report8','Controller@Reporte8');
 Route::post('/Report9','Controller@Reporte9');
 Route::post('/Report10','Controller@Reporte10');
 
+Route::post('/Reporte2Formu','Controller@Reporte2Detalle');
+
+
 
 Route::get('/QForm', function () {
     return view('Questions/QuestionForm');

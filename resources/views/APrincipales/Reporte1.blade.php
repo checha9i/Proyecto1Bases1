@@ -64,8 +64,8 @@
             <center class="container">
             <table class="table table-striped table-bordered" border = "5">
                <tr>
-                      <td>Id</td>
-                  <td>Nombre</td>
+                      <td>Cliente</td>
+                  <td>Edad</td>
 
                </tr>
                   @foreach($report as $u)

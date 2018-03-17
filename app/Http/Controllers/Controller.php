@@ -273,6 +273,30 @@ public function Reporte1(Request $req)
    return view('APrincipales/Reporte1',compact('report'));
 
       }
+      public function Reporte2(Request $req)
+           {
+
+             $report=DB::select('select * from formulario');
+
+
+         return view('APrincipales/Reporte2',compact('report'));
+
+            }
+
+
+            public function Reporte2Detalle($id)
+                 {
+
+                   $report=DB::select('select * from formulario where = ?',[$id]) ;
+
+
+               return view('APrincipales/DetalleReporte2',compact('report'));
+
+                  }
+
+
+
+
 
 
 }
