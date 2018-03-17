@@ -111,6 +111,6 @@ Route::get('/UsuarioPrincipal', function () {
     return view('APrincipales/Principal');
 });
 Route::get('/GuardarPreguntaDina','Controller@GuardarPreguntaDina');
-Route::get('/Register','Controller@registrar');
+Route::post('/Register','Controller@registrar');
 Route::get('/LeerPublicacion/{id}', array( 'as' => 'LeerPublicacion', 'uses' => 'Controller@Leer'));
 Route::get('/LeerPublicacion2/{id}', 'Controller@Leer');
