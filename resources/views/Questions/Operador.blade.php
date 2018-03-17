@@ -13,8 +13,8 @@
 
     <!-- Bootstrap core CSS -->
 
-    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="css/business-frontpage.css" rel="stylesheet">
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -27,7 +27,7 @@
   <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg  fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
         <a class="navbar-brand" href="/">Call Center E-Sports</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,7 +67,6 @@
                                   <div class="row centered-form">
                                   <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
                                     <div class="panel panel-default">
-
 
                                       <form role="form" action="/CrearForm" method="post" class="login-form">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
