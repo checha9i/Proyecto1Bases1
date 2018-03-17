@@ -55,9 +55,6 @@ Route::get('delete/{id}','Controller@destroy') ;
 Route::get('editar/{id}','Controller@edit') ;
 
 
-
-
-
 Route::get('/QForm', function () {
     return view('Questions/QuestionForm');
 });

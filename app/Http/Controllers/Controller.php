@@ -118,11 +118,12 @@ public function eliminarOperadores(Request $req)
  	$editar = DB::table('usuario')-> where (['id_usu'=>$id])->get();
 
  	$editar->nombre = $req->input('name');
+ 	
 
  	if ($editar->nombre != null)
  	{
  		echo 'update';
- 		// return redirect('/EliminarOp');
+ 		
  	}
  	else
  	{
