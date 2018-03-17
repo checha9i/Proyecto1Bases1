@@ -83,12 +83,11 @@
                             			 		
                                         
                                         @if(!empty($user))
-                                        <form role="form" action="/editar/{{$user[0]->id_usu}}" method="gets" class="Register-form">
-                                          <p>
-                                            <input value ="{{$user[0]->nombre}}" type="text" id="name" name="name" placeholder="Nombre">
-                                            <input type="submit" value="Actualizar" >
-                                          </p>
-                                        </form>
+                                        <form role="form" action="/editar/{{$user[0]->id_usu}}" method="get" class="Register-form">
+                                        <p>
+                                          <input value ="{{$user[0]->nombre}}" type="text" id="name" name="name" placeholder="Nombre">
+                                          <input type="submit" value="Actualizar" >
+                                        </p>
                                         @else
                                         <p>
                                           No existe informacion para este usuario
@@ -96,7 +95,7 @@
 
                                         @endif
 
-                            			  	
+                            			  	</form>
 
 
                             			    	</div>
