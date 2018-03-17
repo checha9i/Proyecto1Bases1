@@ -70,8 +70,8 @@
                </tr>
                   @foreach($report as $u)
                   <tr>
-                     <td>{{ $u->nombre }}</td>
-                     <td>{{ $u->edad }}</td>
+                     <td>{{ $u->NombreF }}</td>
+
 
 
                   </tr>

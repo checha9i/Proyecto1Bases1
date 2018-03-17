@@ -81,22 +81,22 @@
               </thead>
               <tbody>
                     <form method="get" action="/GuardarPreguntaDina">
-                        <p>
+                        <td>
               						<input type="text" id="TPregunta" name="TPregunta" placeholder="Escriba su Pregunta" class="form-control" required>
-              					</p>
-                        <p>
+              					</td>
+                        <td>
               						<input type="text" id="TRespuesta" name="TRespuesta" placeholder="Escriba su Respuesta Correcta" class="form-control" required>
-              					</p>
+              					</td>
 
-                        <p>
+                        <td>
               						<input type="text" id="TRB" name="TRB" placeholder="Escriba su Redireccion Buena" class="form-control" required>
-              					</p>
-                        <p>
+              					</td>
+                        <td>
               						<input type="text" id="TRM" name="TRM" placeholder="Escriba su Redireccion Mala" class="form-control" required>
-              					</p>
-              				<p>
+              					</td>
+              				<tr>
               					<input type="submit" value="Crear" class="btn btn-success">
-              				</p>
+              				</tr>
               			</form>
       				</tbody>
 
@@ -113,34 +113,34 @@
 
               <tbody>
                     <form method="get" action="/GuardarPreguntaDina">
-                        <p>
+                        <td>
               						<input type="text" id="TPregunta" name="TPregunta" placeholder="Escriba su Pregunta" class="form-control" required>
-              					</p>
-                        <p>
+              					</td>
+                        <td>
               						<input type="text" id="TRespuesta" name="TRespuesta" placeholder="Escriba su Respuesta Correcta" class="form-control" required>
-              					</p>
-                          <p>
-                            <input type="text" id="Op1" name="Op1" placeholder="Escriba su Opcion 1" class="form-control" required>
-                          </p>
-                          <p>
+              					</td>
+                          <td>
+														                            <input type="text" id="Op1" name="Op1" placeholder="Escriba su Opcion 1" class="form-control" required>
+                          </td>
+                          <td>
                             <input type="text" id="Op2" name="Op2" placeholder="Escriba su Opcion 2" class="form-control" required>
-                          </p>
-                          <p>
+                          </td>
+                          <td>
                             <input type="text" id="Op3" name="Op3" placeholder="Escriba su Opcion 3" class="form-control" required>
-                          </p>
-                          <p>
+                          </td>
+                          <td>
                             <input type="text" id="Op4" name="Op4" placeholder="Escriba su Opcion 4" class="form-control" required>
-                          </p>
+                          </td>
 
-                        <p>
+                        <td>
               						<input type="text" id="TRB" name="TRB" placeholder="Escriba su Redireccion Buena" class="form-control" required>
-              					</p>
-                        <p>
+              					</td>
+                        <td>
               						<input type="text" id="TRM" name="TRM" placeholder="Escriba su Redireccion Mala" class="form-control" required>
-              					</p>
-              				<p>
+              					</td>
+              				<tr>
               					<input type="submit" value="Crear" class="btn btn-success">
-              				</p>
+              				</tr>
               			</form>
       				</tbody>
   					@elseif ( Session::get('Reporte') == 'r3')
@@ -152,22 +152,22 @@
 
               <tbody>
                     <form method="get" action="/GuardarPreguntaDina">
-                        <p>
+                        <td>
               						<input type="text" id="TPregunta" name="TPregunta" placeholder="Escriba su Pregunta" class="form-control" required>
-              					</p>
-                        <p>
+              					</td>
+                        <td>
               						<input type="text" id="TRespuesta" name="TRespuesta" placeholder="Escriba su Respuesta Correcta" class="form-control" required>
-              					</p>
+              					</td>
 
-                        <p>
+                        <td>
               						<input type="text" id="TRB" name="TRB" placeholder="Escriba su Redireccion Buena" class="form-control" required>
-              					</p>
-                        <p>
+              					</td>
+                        <td>
               						<input type="text" id="TRM" name="TRM" placeholder="Escriba su Redireccion Mala" class="form-control" required>
-              					</p>
-              				<p>
+              					</td>
+              				<tr>
               					<input type="submit" value="Crear" class="btn btn-success">
-              				</p>
+              				</tr>
               			</form>
       				</tbody>
 

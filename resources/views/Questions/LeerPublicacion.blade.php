@@ -53,8 +53,9 @@
 				</p>
 				<p>
 					@if (Session::get('TipPreg') == 4)
+
 						<input type="submit" value="Finalizar" class="btn btn-success">
-						{{Session::put('PreguntaActual', (Session::get('PreguntaActual')+1))}}
+{{Session::put('PreguntaActual', (Session::get('PreguntaActual')+1))}}
 
 					@else
 						<input type="submit" value="Responder" class="btn btn-success">

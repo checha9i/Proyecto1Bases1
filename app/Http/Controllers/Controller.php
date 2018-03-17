@@ -157,7 +157,91 @@ public function eliminarOperadores(Request $req)
 
  }
 
+  public function Reporte1(Request $req){
 
+    $report=DB::select('select * from formulario');
+
+
+    return view('APrincipales/Reporte1',compact('report'));
+  }
+
+  public function Reporte2(Request $req)
+           {
+
+             $report=DB::select('select * from formulario');
+
+
+         return view('APrincipales/Reporte2',compact('report'));
+
+            }
+            public function Reporte3(Request $req){
+
+              $report=DB::select('select * from formulario');
+
+
+              return view('APrincipales/Reporte1',compact('report'));
+            }
+
+            public function Reporte4(Request $req)
+                     {
+
+                       $report=DB::select('select * from formulario');
+
+
+                   return view('APrincipales/Reporte2',compact('report'));
+
+                      }
+                      public function Reporte5(Request $req){
+
+                        $report=DB::select('select * from formulario');
+
+
+                        return view('APrincipales/Reporte1',compact('report'));
+                      }
+
+                      public function Reporte6(Request $req)
+                               {
+
+                                 $report=DB::select('select * from formulario');
+
+
+                             return view('APrincipales/Reporte2',compact('report'));
+
+                                }
+                                public function Reporte7(Request $req){
+
+                                  $report=DB::select('select * from formulario');
+
+
+                                  return view('APrincipales/Reporte1',compact('report'));
+                                }
+
+                                public function Reporte8(Request $req)
+                                         {
+
+                                           $report=DB::select('select * from formulario');
+
+
+                                       return view('APrincipales/Reporte9',compact('report'));
+
+                                          }
+                                          public function Reporte1(Request $req){
+
+                                            $report=DB::select('select * from formulario');
+
+
+                                            return view('APrincipales/Reporte1',compact('report'));
+                                          }
+
+                                          public function Reporte10(Request $req)
+                                                   {
+
+                                                     $report=DB::select('select * from formulario');
+
+
+                                                 return view('APrincipales/Reporte2',compact('report'));
+
+                                                    }
 
   public function AgregarPregunta(Request $req)
   {
