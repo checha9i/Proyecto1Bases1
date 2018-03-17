@@ -72,6 +72,7 @@ echo "<script type='text/javascript'>alert('Error  No existe el usuario');</scri
 
   }
 
+
  public function registrarop(Request $req)
      {
      	  $username = $req->input('first_name');
