@@ -37,7 +37,14 @@ Route::get('/ERROR', function (){
   return view('Auth/Error');
 });
 
+<<<<<<< HEAD
 
+=======
+Route::get('/END', function (){
+
+  return view('Auth/End');
+});
+>>>>>>> master
 
 Route::get('/ERROR1', function (){
 
@@ -53,12 +60,16 @@ Route::get('/Eliop', function () { return view('Auth/Eli');});
 
 Route::post('/EliminarOp','Controller@eliminarOperadores');
 
+
 Route::get('delete/{id}','Controller@destroy') ;
 Route::get('editar/{id}','Controller@edit') ;
 
 Route::get('deleteF/{id}','Controller@destroyF') ;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 Route::post('/EliminarFormulario','Controller@EliminarFormulario');
 
 Route::post('/Report1','Controller@Reporte1');
@@ -75,6 +86,15 @@ Route::post('/Report10','Controller@Reporte10');
 Route::post('/Reporte2Formu','Controller@Reporte2Detalle');
 
 
+<<<<<<< HEAD
+=======
+Route::post('/end','Controller@end');
+
+
+
+
+
+>>>>>>> master
 Route::get('/QForm', function () {
     return view('Questions/QuestionForm');
 });
