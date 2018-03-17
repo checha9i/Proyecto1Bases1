@@ -65,8 +65,7 @@ Route::get('editar/{id}','Controller@edit') ;
 
 Route::get('deleteF/{id}','Controller@destroyF') ;
 
-=======
->>>>>>> 2dcc81c4b0b39d6a9e32363a93589ff8b1071827
+
 Route::post('/EliminarFormulario','Controller@EliminarFormulario');
 
 Route::post('/Report1','Controller@Reporte1');
