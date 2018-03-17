@@ -165,7 +165,7 @@ public function eliminarOperadores(Request $req)
       DB::delete('delete from formulario where id_examen = ?',[$id]) ;
 
          $NombreF=Session::get('USU');
-	      		DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Eliminó Pregunta y formulario ['.$id.']' ]);
+	     DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Eliminó Pregunta y formulario ['.$id.']' ]);
 
       echo "Record deleted successfully.<br/>";
       echo '<a href="/Operador">Click Here</a> to go back.';
@@ -199,25 +199,34 @@ public function eliminarOperadores(Request $req)
 		$SelectTipoPregunta = $req->input('SelectTipoPregunta');
 		if ($SelectTipoPregunta != null)
 		{
+			
 
 			if ($SelectTipoPregunta == 'Directa')
 			{
 				Session::put('Reporte', 'r1');
+				$NombreF=Session::get('USU');
+	      		DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Agregó pregunta directa']);
 				return view('Questions/CrearPregunta');
 			}
 			elseif ($SelectTipoPregunta == 'OpcionMul')
 			{
 				Session::put('Reporte', 'r2');
+				$NombreF=Session::get('USU');
+	      		DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Agregó pregunta Opcinal']);
 				return view('Questions/CrearPregunta');
 			}
 			elseif ($SelectTipoPregunta == 'VF')
 			{
 				Session::put('Reporte', 'r3');
+				$NombreF=Session::get('USU');
+	      		DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Agregó pregunta falso verdadera']);
 				return view('Questions/CrearPregunta');
 			}
 			elseif ($SelectTipoPregunta == 'Final')
 			{
 				Session::put('Reporte', 'r4');
+				$NombreF=Session::get('USU');
+	      		DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Agregó pregunta Final']);
 				return view('Questions/CrearPregunta');
 			}
 		}
@@ -252,7 +261,8 @@ public function eliminarOperadores(Request $req)
 
                 DB::table('pregunta')->insert(['pregunta'=>$Pregunta,'respuesta'=>$Respuesta,'TipoPregunta'=>1,'SigPregunta'=>$Sig_Pregunta,'SigPregunta_Mala'=>$Sig_Pregunta_Mala]);
                 
-				
+				$NombreF=Session::get('USU');
+	      		DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Agregó primera pregunta']);
 				
 				$Preg = DB::select('select * from pregunta order by idpregunta DESC');
 			    
@@ -286,6 +296,7 @@ public function eliminarOperadores(Request $req)
 				 Session::put('Reporte', 'r5');
 				 
 				 
+
 				 $Preg = DB::select('select * from pregunta order by idpregunta DESC');
 			    
 				 DB::table('preguntaformulario')->insert(['numemro'=>Session::get('ContadorPre'),'formulario_id_examen'=>Session::get('IdForm'),'pregunta_idpregunta'=>$Preg[0]->idpregunta]);
@@ -375,11 +386,14 @@ public function eliminarOperadores(Request $req)
 				DB::table('cliente')->insert($data);
 				$Clien = DB::select('select * from cliente order by cliente_id DESC');
 				
+
+	      		DB::table('bitacora')->insert(['nombreUsu'=>$Nombre,'fecha'=>$date,'detalle'=>'Agrega cliente al formulario']);
+
 				Session::put('IdClient', $Clien[0]->cliente_id);
 				$Form = DB::select('select * from formulario where id_examen = :nom', ['nom'=>$fo ]);
 				$exa = $Form[0]->id_examen;
 				Session::put('IdForm', $exa);
-				
+				DB::table('bitacora')->insert(['nombreUsu'=>$Nombre,'fecha'=>$date,'detalle'=>'Le asigna formulario al examen']);
 				return redirect()->route('LeerPublicacion', ['id' => $Form[0]->id_examen]);
 				
 			}
