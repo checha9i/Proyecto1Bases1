@@ -9,6 +9,7 @@
 	    <link href="css/business-frontpage.css" rel="stylesheet">
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
 	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+
 	<style>
 		body {
 			width: 600px;
@@ -93,12 +94,11 @@
                         <td>
               						<input type="text" id="TRM" name="TRM" placeholder="Escriba su Redireccion Mala" class="form-control" required>
               					</td>
-													</tbody>
-              				<p>
+              				<tr>
               					<input type="submit" value="Crear" class="btn btn-success">
-              				</p>
+              				</tr>
               			</form>
-
+      				</tbody>
 
   					@elseif ( Session::get('Reporte') == 'r2')
   						<th>Escriba su Pregunta</th>
@@ -120,7 +120,7 @@
               						<input type="text" id="TRespuesta" name="TRespuesta" placeholder="Escriba su Respuesta Correcta" class="form-control" required>
               					</td>
                           <td>
-                            <input type="text" id="Op1" name="Op1" placeholder="Escriba su Opcion 1" class="form-control" required>
+														                            <input type="text" id="Op1" name="Op1" placeholder="Escriba su Opcion 1" class="form-control" required>
                           </td>
                           <td>
                             <input type="text" id="Op2" name="Op2" placeholder="Escriba su Opcion 2" class="form-control" required>
@@ -138,9 +138,9 @@
                         <td>
               						<input type="text" id="TRM" name="TRM" placeholder="Escriba su Redireccion Mala" class="form-control" required>
               					</td>
-              				<p>
+              				<tr>
               					<input type="submit" value="Crear" class="btn btn-success">
-              				</p>
+              				</tr>
               			</form>
       				</tbody>
   					@elseif ( Session::get('Reporte') == 'r3')
@@ -152,22 +152,22 @@
 
               <tbody>
                     <form method="get" action="/GuardarPreguntaDina">
-                          <td>
+                        <td>
               						<input type="text" id="TPregunta" name="TPregunta" placeholder="Escriba su Pregunta" class="form-control" required>
               					</td>
-                          <td>
+                        <td>
               						<input type="text" id="TRespuesta" name="TRespuesta" placeholder="Escriba su Respuesta Correcta" class="form-control" required>
               					</td>
 
-                          <td>
+                        <td>
               						<input type="text" id="TRB" name="TRB" placeholder="Escriba su Redireccion Buena" class="form-control" required>
               					</td>
-                          <td>
+                        <td>
               						<input type="text" id="TRM" name="TRM" placeholder="Escriba su Redireccion Mala" class="form-control" required>
-												</td>
-              				<p>
+              					</td>
+              				<tr>
               					<input type="submit" value="Crear" class="btn btn-success">
-              				</p>
+              				</tr>
               			</form>
       				</tbody>
 
@@ -177,9 +177,9 @@
 
               <tbody>
                     <form method="get" action="/GuardarPreguntaDina">
-                      <td>
+                      <p>
             						<input type="text" id="TPregunta" name="TPregunta" placeholder="Escriba su Descripcion" class="form-control" required>
-            					</td>
+            					</p>
               				<p>
               					<input type="submit" value="Terminar" class="btn btn-success">
               				</p>

@@ -29,19 +29,20 @@ Route::get('/CrearOperador', function (){
   return view('Auth/CrearOperador');
 });
 
-Route::post('/SelectForm','Controller@SelectForm');
 
-Route::post('/empezarform','Controller@empezarform');
+
 
 Route::get('/ERROR', function (){
 
   return view('Auth/Error');
 });
 
+
 Route::get('/END', function (){
 
   return view('Auth/End');
 });
+
 
 Route::get('/ERROR1', function (){
 
@@ -52,7 +53,7 @@ Route::get('/ERROR1', function (){
 Route::get('/Register', function () {
     return view('Auth/Register');
 });
-
+Route::post('/regisme','Controller@registrar');
 Route::get('/Eliop', function () { return view('Auth/Eli');});
 
 Route::post('/EliminarOp','Controller@eliminarOperadores');
@@ -79,11 +80,8 @@ Route::post('/Report10','Controller@Reporte10');
 Route::post('/Reporte2Formu','Controller@Reporte2Detalle');
 
 
+
 Route::post('/end','Controller@end');
-
-
-
-
 
 Route::get('/QForm', function () {
     return view('Questions/QuestionForm');
