@@ -5,6 +5,12 @@
 	<title>Leer</title>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+	<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	    <!-- Custom styles for this template -->
+	    <link href="css/business-frontpage.css" rel="stylesheet">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 
 	<style>
 		body {
@@ -23,7 +29,7 @@
   		<div class="panel-heading">
   			<h4>Pregunta : {{Session::get('Pregunta')}}</h4>
   		</div>
-		
+
 		<div class="panel-body">
 			<form method="get" action="/LeerPublicacion2/{{Session::get('IdForm')}}">
 				<p>
@@ -44,16 +50,17 @@
 						</select>
 					</p>
 				@endif
-				</p>		
+				</p>
 				<p>
 					@if (Session::get('TipPreg') == 4)
-						<input type="submit" value="Finalizar" class="btn btn-success">	
-						{{Session::put('PreguntaActual', (Session::get('PreguntaActual')+1))}}
-						
+
+						<input type="submit" value="Finalizar" class="btn btn-success">
+{{Session::put('PreguntaActual', (Session::get('PreguntaActual')+1))}}
+
 					@else
-						<input type="submit" value="Responder" class="btn btn-success">	
+						<input type="submit" value="Responder" class="btn btn-success">
 					@endif
-							
+
 					<a href="/Operador" class="btn btn-danger">Salir</a>
 				</p>
 			</form>

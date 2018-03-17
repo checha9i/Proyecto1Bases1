@@ -78,10 +78,8 @@
                                     <input type="submit"  class="btn-danger btn-md" name="eli" value="Eliminar Formulario">
                                    </form>
 </br>
-                <form role="form" action="/SelectForm" method="post" class="login-form">
-                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input type="submit"  class="btn-success btn-md" name="flujo" value="Comenzar Flujo de Trabajo">
-               </form>
+<a href="/Register" class="btn-success btn-md">  <p>Comenzar Flujo de Trabajo</p></a>
+
                                       </div>
                                     </div>
                                   </div>

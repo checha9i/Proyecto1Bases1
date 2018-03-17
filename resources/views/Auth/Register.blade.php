@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Registro</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="css/business-frontpage.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 
     <style>
         body {
@@ -42,7 +46,7 @@
 					 </select>
 					 </p>
                      <input type="submit" name="Registrar" value="Registrar">
-                 </form>		 
+                 </form>
              </center>
         </div>
     </div>
