@@ -57,23 +57,25 @@
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 text">
 
-                    <h1><strong>Formulario Para Eliminar</strong>  </h1>
+                    <h1><strong>Seleccionar Flujo</strong>  </h1>
 
             <p> </p>
 
             <center>
             <table class="table table-striped table-bordered" border = "5">
                <tr>
-                      <td>Id</td>
-                  <td>Nombre</td>
+
+                  <th>Nombre</th>
 
                </tr>
-                  @foreach($Formu as $u)
+                  @foreach($form as $u)
                   <tr>
-                     <td>{{ $u->id_examen }}</td>
-                     <td>{{ $u->NombreF }}</td>
-                     <td> <a href="/deleteF/{{$u->id_examen}}" class="btn btn_danger">  Eliminar</a>
-
+<td>
+                       <form role="form" action="/empezarform/{{$u->id_examen,1}}" method="post" class="login-form">
+                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                       <input type="submit"  class="btn-primary btn-md" name="flujo" value=" {{ $u->NombreF }}">
+                       </td>
+                      </form>
                   </tr>
                   @endforeach
             </table>
