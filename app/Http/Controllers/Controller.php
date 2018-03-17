@@ -593,7 +593,9 @@ public function eliminarOperadores(Request $req)
 				$Form = DB::select('select * from formulario where id_examen = :nom', ['nom'=>$fo ]);
 				$exa = $Form[0]->id_examen;
 				Session::put('IdForm', $exa);
+
 				DB::table('bitacora')->insert(['nombreUsu'=>$Nombre,'fecha'=>$date,'detalle'=>'Le asigna formulario al examen']);
+
 				return redirect()->route('LeerPublicacion', ['id' => $Form[0]->id_examen]);
 
 			}
