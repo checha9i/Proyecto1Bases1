@@ -19,6 +19,8 @@ class Controller extends BaseController
      {
       $username = $req->input('form-username');
       $password = $req->input('form-password');
+      $date = new \DateTime();
+      Session::put('USU', $req->input('form-username'));
 
       $checkLogin = DB::select('select * from usuario where nombre = :id and contrasenia = :contra ', [ 'id' => $username, 'contra' => $password]);
 
@@ -28,15 +30,22 @@ class Controller extends BaseController
 
 
 	      if ($tipoUsuario==1) {
+	      		
+	      	
+            	$NombreF=Session::get('USU');
+	      		DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Ingreso Al sistema']);
 
-	      	return redirect('/Admin');
+
+
+	      	    return redirect('/Admin');
 
 	      }else if ($tipoUsuario==2) {
-  	return redirect('/Operador');
+  			return redirect('/Operador');
       // AQUÍ VA EL OPERARIOR
 
 
 	      }else if ($tipoUsuario==3) {
+
 
 	      }else {
       // AQUÍ VA EL CLIENTE
@@ -47,6 +56,17 @@ class Controller extends BaseController
        echo $tipoUsuario;
 
   }
+
+ public function end(Request $req){
+
+ 	Session::put('USU', $req->input(''));
+
+ 	return redirect('/END');
+
+ }
+
+
+
 
   public function CrearFormulario(Request $req)
      {
@@ -133,7 +153,7 @@ public function eliminarOperadores(Request $req)
       echo '<a href="/Operador">Click Here</a> to go back.';
    }
 
->>>>>>> master
+
 
  public function edit( Request $req,$id=null) {
 

@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Admin</title>
+        <title>Cerrar Sesión</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -32,7 +32,7 @@
     </head>
 
     <body>
-
+        
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
@@ -53,45 +53,58 @@
             <li class="nav-item">
               <a class="nav-link " href="/Register">Sign Up</a>
             </li>
-
-             <li class="nav-item">
-              <a class="nav-link " href="/END">END</a>
-            </li>
           </ul>
         </div>
       </div>
     </nav>
 
 
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">Call Center E-Sports</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="/Login"><i class="fa fa-sign-in"></i> Log in</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="/Register">Sign Up</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
         <!-- Top content -->
         <div class="top-content">
 
             <div class="inner-bg">
                 <div class="container">
                     <div class="row">
-                       <form role="form" action="/CrearOperador" method="get" class="login-form">
-                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                           <input type="submit"  class="btn-primary btn-md"  name="login" value="Crear Operador">
-                          </form>
+                        <div class="col-sm-8 col-sm-offset-2 text">
+
+                            <h1><strong>ADIOZ :V </strong> Adioz :p </h1>
 
 
-                        <form role="form" action="/EliminarOp" method="post" class="login-form">
-                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="submit"  name="eli" class="btn-danger btn-md" value="Eliminar Operador">
-                       </form>
-
-                        <!-- <li><a href="/Eliop">Regresar</a></li> -->
-
+                        </div>
                     </div>
-
-
+                   
+               
                 </div>
             </div>
 
         </div>
 
 
-
+   
 
     </body>
 
