@@ -57,18 +57,19 @@ class Controller extends BaseController
       $Salario= $req->input('Salario');
       $pass1= $req->input('password_confirmation');
 
-    if ($password==$pass1){ 
+    if ($password==$pass1){
 
 	 DB::table('usuario')->insert(['nombre'=>$username,'Apellido'=>$lasname,'contrasenia'=>$password,'email'=>$email,
 	      	'tipo_puesto_id_puesto'=>3]);
 	     
+
 	     return redirect('/Login');
 
     }else {
 
     	 return redirect('/ERROR');
     }
-  
+
   }
 
  public function registrarop(Request $req)
@@ -135,6 +136,28 @@ public function eliminarOperadores(Request $req)
 
 
 
+
+  public function Opciones(Request $req)
+  	{
+  		$Opcion = array();
+  		for ($i = 0; $i < Session::get('Opciones'); $i++)
+  		{
+  			$Opcion[$i] = $req->input('opcion'.$i);
+  		}
+  		if ($Opcion[0] != null)
+  		{
+  			for ($i = 0; $i < Session::get('Opciones'); $i++)
+  			{
+  				$data = array('Pregunta'=>Session::get('Pregunta'), 'Tipo'=>Session::get('TipoPregunta'), 'Evaluacion'=>Session::get('NivelPregunta'), 'Respuesta'=>$Opcion[$i]);
+  				DB::table('TempEvaluacion')->insert($data);
+  			}
+  			return view('IndexABC');
+  		}
+  		else
+  		{
+  			return view('/Opciones');
+  		}
+  	}
 
 
 

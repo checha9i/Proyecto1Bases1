@@ -41,12 +41,12 @@
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link " href="/Login"><i class="fa fa-sign-in"></i> Log in</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link " href="/Register">Sign Up</a>
-						</li>
+            <li class="nav-item">
+                <a class="nav-link " href="/"><i class="fa fa-user"></i>Cuenta</a>
+                </li>
+                <li class="nav-item">
+              <a class="nav-link " href="/"><i class="fa fa-sign-out"></i>Cerrar Sesion</a>
+            </li>
 					</ul>
 				</div>
 			</div>
@@ -71,7 +71,7 @@
 			</br>
 			</br>
 			<div class="col-sm-16 col-sm-offset-2 text">
-							 <pre>
+							 <pre id="Pregunta">
 	 Text in a pre element
 	 is displayed in a fixed-width
 	 font, and it preserves
