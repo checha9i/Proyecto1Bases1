@@ -3,9 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Tipos</title>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-
+	<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	    <!-- Custom styles for this template -->
+	    <link href="css/business-frontpage.css" rel="stylesheet">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 	<style>
 		body {
 			width: 600px;
@@ -77,24 +80,25 @@
               </thead>
               <tbody>
                     <form method="get" action="/GuardarPreguntaDina">
-                        <p>
+                        <td>
               						<input type="text" id="TPregunta" name="TPregunta" placeholder="Escriba su Pregunta" class="form-control" required>
-              					</p>
-                        <p>
+              					</td>
+                        <td>
               						<input type="text" id="TRespuesta" name="TRespuesta" placeholder="Escriba su Respuesta Correcta" class="form-control" required>
-              					</p>
+              					</td>
 
-                        <p>
+                        <td>
               						<input type="text" id="TRB" name="TRB" placeholder="Escriba su Redireccion Buena" class="form-control" required>
-              					</p>
-                        <p>
+              					</td>
+                        <td>
               						<input type="text" id="TRM" name="TRM" placeholder="Escriba su Redireccion Mala" class="form-control" required>
-              					</p>
+              					</td>
+													</tbody>
               				<p>
               					<input type="submit" value="Crear" class="btn btn-success">
               				</p>
               			</form>
-      				</tbody>
+
 
   					@elseif ( Session::get('Reporte') == 'r2')
   						<th>Escriba su Pregunta</th>
@@ -109,31 +113,31 @@
 
               <tbody>
                     <form method="get" action="/GuardarPreguntaDina">
-                        <p>
+                        <td>
               						<input type="text" id="TPregunta" name="TPregunta" placeholder="Escriba su Pregunta" class="form-control" required>
-              					</p>
-                        <p>
+              					</td>
+                        <td>
               						<input type="text" id="TRespuesta" name="TRespuesta" placeholder="Escriba su Respuesta Correcta" class="form-control" required>
-              					</p>
-                          <p>
+              					</td>
+                          <td>
                             <input type="text" id="Op1" name="Op1" placeholder="Escriba su Opcion 1" class="form-control" required>
-                          </p>
-                          <p>
+                          </td>
+                          <td>
                             <input type="text" id="Op2" name="Op2" placeholder="Escriba su Opcion 2" class="form-control" required>
-                          </p>
-                          <p>
+                          </td>
+                          <td>
                             <input type="text" id="Op3" name="Op3" placeholder="Escriba su Opcion 3" class="form-control" required>
-                          </p>
-                          <p>
+                          </td>
+                          <td>
                             <input type="text" id="Op4" name="Op4" placeholder="Escriba su Opcion 4" class="form-control" required>
-                          </p>
+                          </td>
 
-                        <p>
+                        <td>
               						<input type="text" id="TRB" name="TRB" placeholder="Escriba su Redireccion Buena" class="form-control" required>
-              					</p>
-                        <p>
+              					</td>
+                        <td>
               						<input type="text" id="TRM" name="TRM" placeholder="Escriba su Redireccion Mala" class="form-control" required>
-              					</p>
+              					</td>
               				<p>
               					<input type="submit" value="Crear" class="btn btn-success">
               				</p>
@@ -148,19 +152,19 @@
 
               <tbody>
                     <form method="get" action="/GuardarPreguntaDina">
-                        <p>
+                          <td>
               						<input type="text" id="TPregunta" name="TPregunta" placeholder="Escriba su Pregunta" class="form-control" required>
-              					</p>
-                        <p>
+              					</td>
+                          <td>
               						<input type="text" id="TRespuesta" name="TRespuesta" placeholder="Escriba su Respuesta Correcta" class="form-control" required>
-              					</p>
+              					</td>
 
-                        <p>
+                          <td>
               						<input type="text" id="TRB" name="TRB" placeholder="Escriba su Redireccion Buena" class="form-control" required>
-              					</p>
-                        <p>
+              					</td>
+                          <td>
               						<input type="text" id="TRM" name="TRM" placeholder="Escriba su Redireccion Mala" class="form-control" required>
-              					</p>
+												</td>
               				<p>
               					<input type="submit" value="Crear" class="btn btn-success">
               				</p>
@@ -173,9 +177,9 @@
 
               <tbody>
                     <form method="get" action="/GuardarPreguntaDina">
-                      <p>
+                      <td>
             						<input type="text" id="TPregunta" name="TPregunta" placeholder="Escriba su Descripcion" class="form-control" required>
-            					</p>
+            					</td>
               				<p>
               					<input type="submit" value="Terminar" class="btn btn-success">
               				</p>

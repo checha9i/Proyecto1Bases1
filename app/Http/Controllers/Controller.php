@@ -126,10 +126,24 @@ public function eliminarOperadores(Request $req)
       echo '<a href="/Admin">Click Here</a> to go back.';
    }
 
+ public function SelectForm(Request $req) {
+
+   $form=DB::select('select * from formulario ');
 
 
+ return view('Questions/selectform',compact('form'));
+}
 
- public function destroyF($id) {
+public function empezarform($id,$pregunta) {
+  $pregunta=  DB::Select('SELECT p.idpregunta, p.pregunta , p.respuesta, p.respuesta1, p.respuesta2 , p.respuesta3, p.respuesta4, p.SigPregunta_Mala, p.TipoPregunta FROM pregunta as p,  preguntaformulario as pf where  pf.formulario_id_examen= ?',[$id],' and pf.numemro =?',[$pregunta],' and pf.pregunta_idpregunta=p.idpregunta  ');
+
+if($pregunta->TipoPregunta==1){
+echo '$pregunta->TipoPregunta';
+}
+ return view('Questions/Operador',compact('form'));
+  }
+
+ public function destroyF($id,$num) {
       DB::delete('delete * from pregunta where id_examen = ?',[$id]) ;
       DB::delete('delete from formulario where id_examen = ?',[$id]) ;
 
