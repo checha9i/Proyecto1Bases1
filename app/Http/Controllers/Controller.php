@@ -19,6 +19,8 @@ class Controller extends BaseController
      {
       $username = $req->input('form-username');
       $password = $req->input('form-password');
+      $date = new \DateTime();
+      Session::put('USU', $req->input('form-username'));
 
       $checkLogin = DB::select('select * from usuario where nombre = :id and contrasenia = :contra ', [ 'id' => $username, 'contra' => $password]);
 
@@ -28,16 +30,24 @@ class Controller extends BaseController
       $tipoUsuario= $checkLogin[0]->tipo_puesto_id_puesto;
 
 	      if ($tipoUsuario==1) {
+	      		
+	      	
+            	$NombreF=Session::get('USU');
+	      		DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Ingreso Al sistema']);
 
-	      	return redirect('/Admin');
+
+
+	      	    return redirect('/Admin');
 
 	      }else if ($tipoUsuario==2) {
-  	return redirect('/Operador');
+  			return redirect('/Operador');
       // AQUÍ VA EL OPERARIOR
 
 
 	      }else if ($tipoUsuario==3) {
+
   	return redirect('/UsuarioPrincipal');
+
 	      }else {
       // AQUÍ VA EL CLIENTE
 echo "<script type='text/javascript'>alert('Error no existe el usuario');</script>";
@@ -51,6 +61,17 @@ echo "<script type='text/javascript'>alert('Error  No existe el usuario');</scri
 
   }
 
+ public function end(Request $req){
+
+ 	Session::put('USU', $req->input(''));
+
+ 	return redirect('/END');
+
+ }
+
+
+
+
   public function CrearFormulario(Request $req)
      {
        $date = new \DateTime();
@@ -62,6 +83,11 @@ echo "<script type='text/javascript'>alert('Error  No existe el usuario');</scri
 
 			   $Form = DB::select('select * from formulario order by id_examen DESC');
 			   Session::put('IdForm', $Form[0]->id_examen);
+
+
+			   $NombreF=Session::get('USU');
+	      		DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Crea el formulario']);
+			   
 
 			   Session::put('NombreFormulario',$NombreF);
                return view('Questions/PrimeraPregunta');
@@ -81,11 +107,14 @@ echo "<script type='text/javascript'>alert('Error  No existe el usuario');</scri
 	      $email= $req->input('email');
 	      $Salario= $req->input('Salario');
 	      $pass1= $req->input('password_confirmation');
-
+	      $date = new \DateTime();
 	        if ($password==$pass1){
 
 	      	 DB::table('usuario')->insert(['nombre'=>$username,'Apellido'=>$lasname,'contrasenia'=>$password,'email'=>$email,'salario'=>$Salario,
 	      	      	'tipo_puesto_id_puesto'=>2]);
+
+	      	
+	        	DB::table('bitacora')->insert(['nombreUsu'=>$username,'fecha'=>$date,'detalle'=>'Crea el formulario']);
 
 	      	     return redirect('/Login');
 
@@ -109,9 +138,11 @@ public function eliminarOperadores(Request $req)
 
      public function EliminarFormulario(Request $req)
           {
-
+          	$date = new \DateTime();
           	$Formu=DB::select('select * from formulario');
 
+          	 $NombreF=Session::get('USU');
+	      		DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Elimina Formulario']);
 
      		return view('Questions/BorrarFormulario',compact('Formu'));
 
@@ -119,8 +150,15 @@ public function eliminarOperadores(Request $req)
 
  public function destroy($id) {
 
+ 		$date = new \DateTime();
+
+       $NombreF=Session::get('USU');
+	      		DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Eliminar Operadores ['.$id.']' ]);
+
 
       DB::delete('delete from usuario where id_usu = ?',[$id]) ;
+
+      
 
       echo "Record deleted successfully.<br/>";
       echo '<a href="/Admin">Click Here</a> to go back.';
@@ -147,11 +185,14 @@ echo '$pregunta->TipoPregunta';
       DB::delete('delete * from pregunta where id_examen = ?',[$id]) ;
       DB::delete('delete from formulario where id_examen = ?',[$id]) ;
 
+         $NombreF=Session::get('USU');
+	     DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Eliminó Pregunta y formulario ['.$id.']' ]);
+
       echo "Record deleted successfully.<br/>";
       echo '<a href="/Operador">Click Here</a> to go back.';
    }
 
->>>>>>> master
+
 
  public function edit( Request $req,$id=null) {
 
@@ -179,25 +220,34 @@ echo '$pregunta->TipoPregunta';
 		$SelectTipoPregunta = $req->input('SelectTipoPregunta');
 		if ($SelectTipoPregunta != null)
 		{
+			
 
 			if ($SelectTipoPregunta == 'Directa')
 			{
 				Session::put('Reporte', 'r1');
+				$NombreF=Session::get('USU');
+	      		DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Agregó pregunta directa']);
 				return view('Questions/CrearPregunta');
 			}
 			elseif ($SelectTipoPregunta == 'OpcionMul')
 			{
 				Session::put('Reporte', 'r2');
+				$NombreF=Session::get('USU');
+	      		DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Agregó pregunta Opcinal']);
 				return view('Questions/CrearPregunta');
 			}
 			elseif ($SelectTipoPregunta == 'VF')
 			{
 				Session::put('Reporte', 'r3');
+				$NombreF=Session::get('USU');
+	      		DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Agregó pregunta falso verdadera']);
 				return view('Questions/CrearPregunta');
 			}
 			elseif ($SelectTipoPregunta == 'Final')
 			{
 				Session::put('Reporte', 'r4');
+				$NombreF=Session::get('USU');
+	      		DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Agregó pregunta Final']);
 				return view('Questions/CrearPregunta');
 			}
 		}
@@ -231,9 +281,16 @@ echo '$pregunta->TipoPregunta';
                {
 
                 DB::table('pregunta')->insert(['pregunta'=>$Pregunta,'respuesta'=>$Respuesta,'TipoPregunta'=>1,'SigPregunta'=>$Sig_Pregunta,'SigPregunta_Mala'=>$Sig_Pregunta_Mala]);
+<<<<<<< HEAD
+                
+				$NombreF=Session::get('USU');
+	      		DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Agregó primera pregunta']);
+				
+=======
 
 
 
+>>>>>>> master
 				$Preg = DB::select('select * from pregunta order by idpregunta DESC');
 
 				DB::table('preguntaformulario')->insert(['numemro'=>Session::get('ContadorPre'),'formulario_id_examen'=>Session::get('IdForm'),'pregunta_idpregunta'=>$Preg[0]->idpregunta]);
@@ -264,7 +321,12 @@ echo '$pregunta->TipoPregunta';
 			   {
 				 DB::table('pregunta')->insert(['pregunta'=>$req->input('TPregunta'),'respuesta'=>$req->input('TRespuesta'),'TipoPregunta'=>1,'SigPregunta'=>$req->input('TRB'),'SigPregunta_Mala'=>$req->input('TRM')]);
 				 Session::put('Reporte', 'r5');
+<<<<<<< HEAD
+				 
+				 
+=======
 
+>>>>>>> master
 
 				 $Preg = DB::select('select * from pregunta order by idpregunta DESC');
 
@@ -354,12 +416,22 @@ echo '$pregunta->TipoPregunta';
 				'correo_e'=>$corr);
 				DB::table('cliente')->insert($data);
 				$Clien = DB::select('select * from cliente order by cliente_id DESC');
+<<<<<<< HEAD
+				
+
+	      		DB::table('bitacora')->insert(['nombreUsu'=>$Nombre,'fecha'=>$date,'detalle'=>'Agrega cliente al formulario']);
+=======
+>>>>>>> master
 
 				Session::put('IdClient', $Clien[0]->cliente_id);
 				$Form = DB::select('select * from formulario where id_examen = :nom', ['nom'=>$fo ]);
 				$exa = $Form[0]->id_examen;
 				Session::put('IdForm', $exa);
+<<<<<<< HEAD
+				DB::table('bitacora')->insert(['nombreUsu'=>$Nombre,'fecha'=>$date,'detalle'=>'Le asigna formulario al examen']);
+=======
 
+>>>>>>> master
 				return redirect()->route('LeerPublicacion', ['id' => $Form[0]->id_examen]);
 
 			}
