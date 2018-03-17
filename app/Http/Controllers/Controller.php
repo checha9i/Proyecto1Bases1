@@ -79,6 +79,9 @@ class Controller extends BaseController
                
 			   $Form = DB::select('select * from formulario order by id_examen DESC');
 			   Session::put('IdForm', $Form[0]->id_examen);
+
+			   $NombreF=Session::get('USU');
+	      		DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Crea el formulario']);
 			   
 			   Session::put('NombreFormulario',$NombreF);
                return view('Questions/PrimeraPregunta');
@@ -97,11 +100,14 @@ class Controller extends BaseController
 	      $email= $req->input('email');
 	      $Salario= $req->input('Salario');
 	      $pass1= $req->input('password_confirmation');
-
+	      $date = new \DateTime();
 	        if ($password==$pass1){
 
 	      	 DB::table('usuario')->insert(['nombre'=>$username,'Apellido'=>$lasname,'contrasenia'=>$password,'email'=>$email,'salario'=>$Salario,
 	      	      	'tipo_puesto_id_puesto'=>2]);
+
+	      	
+	        	DB::table('bitacora')->insert(['nombreUsu'=>$username,'fecha'=>$date,'detalle'=>'Crea el formulario']);
 
 	      	     return redirect('/Login');
 
@@ -125,9 +131,11 @@ public function eliminarOperadores(Request $req)
 
      public function EliminarFormulario(Request $req)
           {
-
+          	$date = new \DateTime();
           	$Formu=DB::select('select * from formulario');
 
+          	 $NombreF=Session::get('USU');
+	      		DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Elimina Formulario']);
 
      		return view('Questions/BorrarFormulario',compact('Formu'));
 
@@ -135,8 +143,15 @@ public function eliminarOperadores(Request $req)
 
  public function destroy($id) {
 
+ 		$date = new \DateTime();
+
+       $NombreF=Session::get('USU');
+	      		DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Eliminar Operadores ['.$id.']' ]);
+
 
       DB::delete('delete from usuario where id_usu = ?',[$id]) ;
+
+      
 
       echo "Record deleted successfully.<br/>";
       echo '<a href="/Admin">Click Here</a> to go back.';
@@ -148,6 +163,9 @@ public function eliminarOperadores(Request $req)
  public function destroyF($id) {
       DB::delete('delete * from pregunta where id_examen = ?',[$id]) ;
       DB::delete('delete from formulario where id_examen = ?',[$id]) ;
+
+         $NombreF=Session::get('USU');
+	      		DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Eliminó Pregunta y formulario ['.$id.']' ]);
 
       echo "Record deleted successfully.<br/>";
       echo '<a href="/Operador">Click Here</a> to go back.';

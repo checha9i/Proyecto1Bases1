@@ -47,6 +47,10 @@
 						<li class="nav-item">
 							<a class="nav-link " href="/Register">Sign Up</a>
 						</li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/END">END</a>
+                        </li>    
+                        
 					</ul>
 				</div>
 			</div>

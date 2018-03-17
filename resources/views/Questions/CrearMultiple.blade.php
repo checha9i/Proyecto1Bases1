@@ -159,7 +159,7 @@
                 <a class="nav-link " href="/"><i class="fa fa-user"></i>Cuenta</a>
                 </li>
                 <li class="nav-item">
-              <a class="nav-link " href="/"><i class="fa fa-sign-out"></i>Cerrar Sesion</a>
+              <a class="nav-link " href="/END"><i class="fa fa-sign-out"></i>Cerrar Sesion</a>
             </li>
           </ul>
         </div>
