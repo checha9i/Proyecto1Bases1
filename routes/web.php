@@ -54,16 +54,31 @@ Route::post('/EliminarOp','Controller@eliminarOperadores');
 Route::get('delete/{id}','Controller@destroy') ;
 Route::get('editar/{id}','Controller@edit') ;
 
+Route::get('deleteF/{id}','Controller@destroyF') ;
 
+<<<<<<< HEAD
+=======
+Route::post('/EliminarFormulario','Controller@EliminarFormulario');
+
+
+
+>>>>>>> master
 Route::get('/QForm', function () {
     return view('Questions/QuestionForm');
 });
 Route::post('/loginme','Controller@login');
 
+Route::post('/CrearForm', function () {
+    return view('Questions/CrearFormulario');
+});
+
+Route::post('/CrearFormulario','Controller@CrearFormulario');
+
   Route::get('/FVForm', function () {
     return view('Questions/FVForm');
 });
-Route::post('/regisme','Controller@registrar');
+Route::get('/AgregarPregunta','Controller@AgregarPregunta');
+Route::post('/PrimeraPregunta','Controller@AgregarPrimeraPregunta');
 Route::post('/regisop','Controller@registrarop');
 
 
@@ -75,3 +90,16 @@ Route::get('/Validate', function () {
 Route::get('/Create', function () {
     return view('Questions/CrearPregunta');
 });
+
+Route::get('/Operador', function () {
+    return view('Questions/Operador');
+});
+
+Route::get('/GuardarPreguntaDina','Controller@GuardarPreguntaDina');
+Route::get('/Register','Controller@registrar');
+Route::get('/LeerPublicacion/{id}', array( 'as' => 'LeerPublicacion', 'uses' => 'Controller@Leer'));
+Route::get('/LeerPublicacion2/{id}', 'Controller@Leer');
+
+
+
+
