@@ -134,13 +134,13 @@ public function eliminarOperadores(Request $req)
  return view('Questions/selectform',compact('form'));
 }
 
-public function empezarform($id,$pregunta) {
-  $pregunta=  DB::Select('SELECT p.idpregunta, p.pregunta , p.respuesta, p.respuesta1, p.respuesta2 , p.respuesta3, p.respuesta4, p.SigPregunta_Mala, p.TipoPregunta FROM pregunta as p,  preguntaformulario as pf where  pf.formulario_id_examen= ?',[$id],' and pf.numemro =?',[$pregunta],' and pf.pregunta_idpregunta=p.idpregunta  ');
+public function empezarform($id) {
+  $pregunta=  DB::Select('SELECT p.idpregunta, p.pregunta , p.respuesta, p.respuesta1, p.respuesta2 , p.respuesta3, p.respuesta4, p.SigPregunta_Mala, p.TipoPregunta FROM pregunta as p,  preguntaformulario as pf where  pf.formulario_id_examen= ?',[$id],' and pf.numemro =1 and pf.pregunta_idpregunta=p.idpregunta  ');
 
-if($pregunta->TipoPregunta==1){
-echo '$pregunta->TipoPregunta';
+if($pregunta[0]->TipoPregunta==1){
+return view::make('Multiple')->with(compact('pregunta'));
 }
- return view('Questions/Operador',compact('form'));
+
   }
 
  public function destroyF($id,$num) {
@@ -151,7 +151,6 @@ echo '$pregunta->TipoPregunta';
       echo '<a href="/Operador">Click Here</a> to go back.';
    }
 
->>>>>>> master
 
  public function edit( Request $req,$id=null) {
 

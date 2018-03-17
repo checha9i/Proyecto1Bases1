@@ -10,14 +10,14 @@
 
     <title>Business Frontpage - Start Bootstrap Template</title>
 
-    <!-- Bootstrap core CSS -->
+  
+    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="css/business-frontpage.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 
-<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
-<link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-<link href="css/preguntas.css" rel="stylesheet">
-<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-<link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="js/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->

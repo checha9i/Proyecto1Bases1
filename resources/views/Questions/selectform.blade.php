@@ -71,7 +71,7 @@
                   @foreach($form as $u)
                   <tr>
 <td>
-                       <form role="form" action="/empezarform/{{$u->id_examen,1}}" method="post" class="login-form">
+                       <form role="form" action="/empezarform/{{$u->id_examen}}" method="post" class="login-form">
                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
                        <input type="submit"  class="btn-primary btn-md" name="flujo" value=" {{ $u->NombreF }}">
                        </td>

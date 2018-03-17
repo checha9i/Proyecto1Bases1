@@ -31,12 +31,14 @@ Route::get('/CrearOperador', function (){
 
 Route::post('/SelectForm','Controller@SelectForm');
 
-Route::post('/empezarform','Controller@empezarform');
+Route::post('/empezarform/{id}','Controller@empezarform');
 
 Route::get('/ERROR', function (){
 
   return view('Auth/Error');
 });
+
+
 
 Route::get('/ERROR1', function (){
 
@@ -57,8 +59,7 @@ Route::get('editar/{id}','Controller@edit') ;
 
 Route::get('deleteF/{id}','Controller@destroyF') ;
 
-<<<<<<< HEAD
-=======
+
 Route::post('/EliminarFormulario','Controller@EliminarFormulario');
 
 Route::post('/Report1','Controller@Reporte1');
@@ -75,8 +76,6 @@ Route::post('/Report10','Controller@Reporte10');
 Route::post('/Reporte2Formu','Controller@Reporte2Detalle');
 
 
-
->>>>>>> master
 Route::get('/QForm', function () {
     return view('Questions/QuestionForm');
 });
