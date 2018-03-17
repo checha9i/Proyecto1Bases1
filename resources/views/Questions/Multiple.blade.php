@@ -10,7 +10,7 @@
 
     <title>Business Frontpage - Start Bootstrap Template</title>
 
-  
+
     <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom styles for this template -->

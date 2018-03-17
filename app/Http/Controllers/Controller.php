@@ -126,24 +126,10 @@ public function eliminarOperadores(Request $req)
       echo '<a href="/Admin">Click Here</a> to go back.';
    }
 
- public function SelectForm(Request $req) {
-
-   $form=DB::select('select * from formulario ');
 
 
- return view('Questions/selectform',compact('form'));
-}
 
-public function empezarform($id) {
-  $pregunta=  DB::Select('SELECT p.idpregunta, p.pregunta , p.respuesta, p.respuesta1, p.respuesta2 , p.respuesta3, p.respuesta4, p.SigPregunta_Mala, p.TipoPregunta FROM pregunta as p,  preguntaformulario as pf where  pf.formulario_id_examen= ?',[$id],' and pf.numemro =1 and pf.pregunta_idpregunta=p.idpregunta  ');
-
-if($pregunta[0]->TipoPregunta==1){
-return view::make('Multiple')->with(compact('pregunta'));
-}
-
-  }
-
- public function destroyF($id,$num) {
+ public function destroyF($id) {
       DB::delete('delete * from pregunta where id_examen = ?',[$id]) ;
       DB::delete('delete from formulario where id_examen = ?',[$id]) ;
 
@@ -338,111 +324,111 @@ return view::make('Multiple')->with(compact('pregunta'));
 
          }
 
-	  public function registrar(Request $req)
-	  {
-			$Nombre = $req->input('name');
-			$Edad = $req->input('edad');
-			$Direccion = $req->input('dir');
-			$tel = $req->input('tel');
-			$corr = $req->input('corr');
-			$fo = $req->input('SelectForm');
+         	  public function registrar(Request $req)
+         	  {
+         			$Nombre = $req->input('name');
+         			$Edad = $req->input('edad');
+         			$Direccion = $req->input('dir');
+         			$tel = $req->input('tel');
+         			$corr = $req->input('corr');
+         			$fo = $req->input('SelectForm');
 
-			if ($Nombre != null)
-			{
-				$data = array('nombre'=>$Nombre, 'edad'=>$Edad, 'direccion'=>$Direccion, 'telefono'=>$tel,
-				'correo_e'=>$corr);
-				DB::table('cliente')->insert($data);
-				$Clien = DB::select('select * from cliente order by cliente_id DESC');
+         			if ($Nombre != null)
+         			{
+         				$data = array('nombre'=>$Nombre, 'edad'=>$Edad, 'direccion'=>$Direccion, 'telefono'=>$tel,
+         				'correo_e'=>$corr);
+         				DB::table('cliente')->insert($data);
+         				$Clien = DB::select('select * from cliente order by cliente_id DESC');
 
-				Session::put('IdClient', $Clien[0]->cliente_id);
-				$Form = DB::select('select * from formulario where id_examen = :nom', ['nom'=>$fo ]);
-				$exa = $Form[0]->id_examen;
-				Session::put('IdForm', $exa);
+         				Session::put('IdClient', $Clien[0]->cliente_id);
+         				$Form = DB::select('select * from formulario where id_examen = :nom', ['nom'=>$fo ]);
+         				$exa = $Form[0]->id_examen;
+         				Session::put('IdForm', $exa);
 
-				return redirect()->route('LeerPublicacion', ['id' => $Form[0]->id_examen]);
+         				return redirect()->route('LeerPublicacion', ['id' => $Form[0]->id_examen]);
 
-			}
-			else
-			{
-				$Formularios = DB::select('select * from formulario');
+         			}
+         			else
+         			{
+         				$Formularios = DB::select('select * from formulario');
 
-				return View('Auth/Register')->with('pregs',$Formularios);
-			}
-}
+         				return View('Auth/Register')->with('pregs',$Formularios);
+         			}
 
+         	  }
 
-public function Leer(Request $req, $id = null)
-{
+            	  public function Leer(Request $req, $id = null)
+            	{
 
-Session::put('IdForm', $id);
-$Publicaciones = DB::select('select * from preguntaformulario where formulario_id_examen = :id order by numemro ASC', ['id'=>$id]);
+            		Session::put('IdForm', $id);
+            		$Publicaciones = DB::select('select * from preguntaformulario where formulario_id_examen = :id order by numemro ASC', ['id'=>$id]);
 
-$conteo = DB::select('select sum(sub1.Conteo) as Suma from (
-    select count(p.idpreguntaformulario) as Conteo
-    from preguntaformulario p
-    where p.formulario_id_examen = :id
-    )sub1', ['id'=>$id]);
+            		$conteo = DB::select('select sum(sub1.Conteo) as Suma from (
+            				select count(p.idpreguntaformulario) as Conteo
+            				from preguntaformulario p
+            				where p.formulario_id_examen = :id
+            				)sub1', ['id'=>$id]);
 
-Session::put('ConteoPreguntas', $conteo[0]->Suma);
+            		Session::put('ConteoPreguntas', $conteo[0]->Suma);
 
-$Opcion = $req->input('SelectRespuesta');
-if ($Opcion != null)
-{
-  $Actual = Session::get('PreguntaActual');
-  $Actual = $Actual + 1;
-  Session::put('PreguntaActual', $Actual);
+            		$Opcion = $req->input('SelectRespuesta');
+            		if ($Opcion != null)
+            		{
+            			$Actual = Session::get('PreguntaActual');
+            			$Actual = $Actual + 1;
+            			Session::put('PreguntaActual', $Actual);
 
-  if ($Actual >= Session::get('ConteoPreguntas'))
-  {
-    $idsaber = DB::select('select * from preguntaformulario where formulario_id_examen = :id  and numemro = :num ;', ['id'=>Session::get('IdForm'), 'num'=>($Actual-1)]);
+            			if ($Actual >= Session::get('ConteoPreguntas'))
+            			{
+            				$idsaber = DB::select('select * from preguntaformulario where formulario_id_examen = :id  and numemro = :num ;', ['id'=>Session::get('IdForm'), 'num'=>($Actual-1)]);
 
-    $data = array('Respuesta'=>$Opcion, 'cliente_cliente_id'=>Session::get('IdClient'),'preguntaformulario_idpreguntaformulario'=>$idsaber[0]->idpreguntaformulario);
-    DB::table('respuestacliente')->insert($data);
-    return view('/Questions/Operador');
-  }
-  else
-  {
-    $idsaber = DB::select('select * from preguntaformulario where formulario_id_examen = :id  and numemro = :num ;', ['id'=>Session::get('IdForm'), 'num'=>($Actual)]);
+            				$data = array('Respuesta'=>$Opcion, 'cliente_cliente_id'=>Session::get('IdClient'),'preguntaformulario_idpreguntaformulario'=>$idsaber[0]->idpreguntaformulario);
+            				DB::table('respuestacliente')->insert($data);
+            				return view('/Questions/Operador');
+            			}
+            			else
+            			{
+            				$idsaber = DB::select('select * from preguntaformulario where formulario_id_examen = :id  and numemro = :num ;', ['id'=>Session::get('IdForm'), 'num'=>($Actual)]);
 
-    $data = array('Respuesta'=>$Opcion, 'cliente_cliente_id'=>Session::get('IdClient'),'preguntaformulario_idpreguntaformulario'=>$idsaber[0]->idpreguntaformulario);
-    DB::table('respuestacliente')->insert($data);
+            				$data = array('Respuesta'=>$Opcion, 'cliente_cliente_id'=>Session::get('IdClient'),'preguntaformulario_idpreguntaformulario'=>$idsaber[0]->idpreguntaformulario);
+            				DB::table('respuestacliente')->insert($data);
 
-    $verificacion = DB::select('select p.respuesta ,p.SigPregunta, p.SigPregunta_Mala
-              from pregunta p, respuestacliente rc, preguntaformulario pf
-              where rc.preguntaformulario_idpreguntaformulario = :id and rc.preguntaformulario_idpreguntaformulario = pf.idpreguntaformulario and pf.pregunta_idpregunta = p.idpregunta',
-              ['id'=>$idsaber[0]->idpreguntaformulario]);
+            				$verificacion = DB::select('select p.respuesta ,p.SigPregunta, p.SigPregunta_Mala
+            									from pregunta p, respuestacliente rc, preguntaformulario pf
+            									where rc.preguntaformulario_idpreguntaformulario = :id and rc.preguntaformulario_idpreguntaformulario = pf.idpreguntaformulario and pf.pregunta_idpregunta = p.idpregunta',
+            									['id'=>$idsaber[0]->idpreguntaformulario]);
 
-    if ($verificacion[0]->respuesta == $Opcion)
-    {
-      $Actual = $verificacion[0]->SigPregunta - 1;
-    }
-    else
-    {
-      $Actual = $verificacion[0]->SigPregunta_Mala - 1;
-    }
+            				if ($verificacion[0]->respuesta == $Opcion)
+            				{
+            					$Actual = $verificacion[0]->SigPregunta - 1;
+            				}
+            				else
+            				{
+            					$Actual = $verificacion[0]->SigPregunta_Mala - 1;
+            				}
 
-    $enun = DB::select('select * from pregunta where idpregunta = :pre', ['pre'=>$Publicaciones[$Actual]->pregunta_idpregunta]);
-    Session::put('Pregunta', $enun[0]->pregunta);
-    Session::put('TipPreg', $enun[0]->TipoPregunta);
+            				$enun = DB::select('select * from pregunta where idpregunta = :pre', ['pre'=>$Publicaciones[$Actual]->pregunta_idpregunta]);
+            				Session::put('Pregunta', $enun[0]->pregunta);
+            				Session::put('TipPreg', $enun[0]->TipoPregunta);
 
-    $preguntas = DB::select('select * from pregunta where idpregunta = :pre', ['pre'=>$Publicaciones[$Actual]->pregunta_idpregunta]);
+            				$preguntas = DB::select('select * from pregunta where idpregunta = :pre', ['pre'=>$Publicaciones[$Actual]->pregunta_idpregunta]);
 
-    return View('Questions/LeerPublicacion')->with('pregs',$preguntas);
-  }
-}
-else
-{
-    Session::put('PreguntaActual', 0);
+            				return View('Questions/LeerPublicacion')->with('pregs',$preguntas);
+            			}
+            		}
+            		else
+            		{
+            				Session::put('PreguntaActual', 0);
 
-    $enun = DB::select('select * from pregunta where idpregunta = :pre', ['pre'=>$Publicaciones[0]->pregunta_idpregunta]);
+            				$enun = DB::select('select * from pregunta where idpregunta = :pre', ['pre'=>$Publicaciones[0]->pregunta_idpregunta]);
 
-    Session::put('Pregunta', $enun[0]->pregunta);
-    Session::put('TipPreg', $enun[0]->TipoPregunta);
+            				Session::put('Pregunta', $enun[0]->pregunta);
+            				Session::put('TipPreg', $enun[0]->TipoPregunta);
 
-    $preguntas = DB::select('select * from pregunta where idpregunta = :pre', ['pre'=>$Publicaciones[0]->pregunta_idpregunta]);
+            				$preguntas = DB::select('select * from pregunta where idpregunta = :pre', ['pre'=>$Publicaciones[0]->pregunta_idpregunta]);
 
-    return View('Questions/LeerPublicacion')->with('pregs',$preguntas);
-}
-}
+            				return View('Questions/LeerPublicacion')->with('pregs',$preguntas);
+            		}
+            	}
 
 	  }
