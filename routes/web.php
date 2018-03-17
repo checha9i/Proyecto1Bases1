@@ -29,8 +29,9 @@ Route::get('/CrearOperador', function (){
   return view('Auth/CrearOperador');
 });
 
+Route::post('/SelectForm','Controller@SelectForm');
 
-
+Route::post('/empezarform','Controller@empezarform');
 
 Route::get('/ERROR', function (){
 
@@ -114,7 +115,3 @@ Route::get('/GuardarPreguntaDina','Controller@GuardarPreguntaDina');
 Route::get('/Register','Controller@registrar');
 Route::get('/LeerPublicacion/{id}', array( 'as' => 'LeerPublicacion', 'uses' => 'Controller@Leer'));
 Route::get('/LeerPublicacion2/{id}', 'Controller@Leer');
-
-
-
-
