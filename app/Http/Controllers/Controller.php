@@ -151,6 +151,7 @@ echo '$pregunta->TipoPregunta';
       echo '<a href="/Operador">Click Here</a> to go back.';
    }
 
+>>>>>>> master
 
  public function edit( Request $req,$id=null) {
 

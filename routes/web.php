@@ -57,6 +57,8 @@ Route::get('editar/{id}','Controller@edit') ;
 
 Route::get('deleteF/{id}','Controller@destroyF') ;
 
+<<<<<<< HEAD
+=======
 Route::post('/EliminarFormulario','Controller@EliminarFormulario');
 
 Route::post('/Report1','Controller@Reporte1');
@@ -74,6 +76,7 @@ Route::post('/Reporte2Formu','Controller@Reporte2Detalle');
 
 
 
+>>>>>>> master
 Route::get('/QForm', function () {
     return view('Questions/QuestionForm');
 });
