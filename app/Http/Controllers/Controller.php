@@ -72,6 +72,7 @@ echo "<script type='text/javascript'>alert('Error  No existe el usuario');</scri
 
 
 
+
   public function CrearFormulario(Request $req)
      {
        $date = new \DateTime();
@@ -281,16 +282,12 @@ echo '$pregunta->TipoPregunta';
                {
 
                 DB::table('pregunta')->insert(['pregunta'=>$Pregunta,'respuesta'=>$Respuesta,'TipoPregunta'=>1,'SigPregunta'=>$Sig_Pregunta,'SigPregunta_Mala'=>$Sig_Pregunta_Mala]);
-<<<<<<< HEAD
+
                 
 				$NombreF=Session::get('USU');
 	      		DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Agregó primera pregunta']);
 				
-=======
 
-
-
->>>>>>> master
 				$Preg = DB::select('select * from pregunta order by idpregunta DESC');
 
 				DB::table('preguntaformulario')->insert(['numemro'=>Session::get('ContadorPre'),'formulario_id_examen'=>Session::get('IdForm'),'pregunta_idpregunta'=>$Preg[0]->idpregunta]);
@@ -321,12 +318,8 @@ echo '$pregunta->TipoPregunta';
 			   {
 				 DB::table('pregunta')->insert(['pregunta'=>$req->input('TPregunta'),'respuesta'=>$req->input('TRespuesta'),'TipoPregunta'=>1,'SigPregunta'=>$req->input('TRB'),'SigPregunta_Mala'=>$req->input('TRM')]);
 				 Session::put('Reporte', 'r5');
-<<<<<<< HEAD
-				 
-				 
-=======
 
->>>>>>> master
+
 
 				 $Preg = DB::select('select * from pregunta order by idpregunta DESC');
 
@@ -416,22 +409,21 @@ echo '$pregunta->TipoPregunta';
 				'correo_e'=>$corr);
 				DB::table('cliente')->insert($data);
 				$Clien = DB::select('select * from cliente order by cliente_id DESC');
-<<<<<<< HEAD
+
 				
 
 	      		DB::table('bitacora')->insert(['nombreUsu'=>$Nombre,'fecha'=>$date,'detalle'=>'Agrega cliente al formulario']);
-=======
->>>>>>> master
+
 
 				Session::put('IdClient', $Clien[0]->cliente_id);
 				$Form = DB::select('select * from formulario where id_examen = :nom', ['nom'=>$fo ]);
 				$exa = $Form[0]->id_examen;
 				Session::put('IdForm', $exa);
-<<<<<<< HEAD
-				DB::table('bitacora')->insert(['nombreUsu'=>$Nombre,'fecha'=>$date,'detalle'=>'Le asigna formulario al examen']);
-=======
 
->>>>>>> master
+				DB::table('bitacora')->insert(['nombreUsu'=>$Nombre,'fecha'=>$date,'detalle'=>'Le asigna formulario al examen']);
+
+
+
 				return redirect()->route('LeerPublicacion', ['id' => $Form[0]->id_examen]);
 
 			}
