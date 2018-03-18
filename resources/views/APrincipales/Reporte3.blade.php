@@ -64,15 +64,17 @@
             <center>
             <table class="table table-striped table-bordered" border = "5">
                <tr>
-                      <td>Id</td>
-                  <td>Nombre</td>
+                      <td>Fecha</td>
+                      <td>Usuario</td>
+                  <td>Detalle</td>
 
                </tr>
                   @foreach($Formu as $u)
                   <tr>
-                     <td>{{ $u->id_examen }}</td>
-                     <td>{{ $u->NombreF }}</td>
-                     <td> <a href="/deleteF/{{$u->id_examen}}" class="btn btn_danger">  Eliminar</a>
+                     <td>{{ $u->fecha }}</td>
+                     <td>{{ $u->nombreUsu }}</td>
+                     <td>{{ $u->detalle }}</td>
+                     
 
                   </tr>
                   @endforeach

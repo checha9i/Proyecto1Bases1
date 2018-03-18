@@ -109,15 +109,6 @@
 <input type="submit"  class="btn-default btn-md" name="crear" value="Reporte 8">
 </form>
 
-<form role="form" action="/Report9" method="post" class="login-form">
-  <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<input type="submit"  class="btn-info btn-md" name="crear" value="Reporte 9">
-</form>
-
-<form role="form" action="/Report10" method="post" class="login-form">
-  <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<input type="submit"  class="btn-default btn-md" name="crear" value="Reporte 10">
-</form>
 
                                       </div>
                                     </div>

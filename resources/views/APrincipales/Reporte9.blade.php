@@ -18,8 +18,7 @@
         <link rel="stylesheet" href="css/style.css">
 
 
-
-                                                                                    <!-- Favicon and touch icons -->
+    <!-- Favicon and touch icons -->
 
     </head>
 

@@ -57,22 +57,21 @@
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 text">
 
-                    <h1><strong>Formulario Para Eliminar</strong>  </h1>
+                    <h1><strong>Top 10 formularios por Cliente</strong>  </h1>
 
             <p> </p>
 
             <center>
             <table class="table table-striped table-bordered" border = "5">
                <tr>
-                      <td>Id</td>
-                  <td>Nombre</td>
+                      <td>Cliente</td>
+                  <td>No. de Formularios</td>
 
                </tr>
-                  @foreach($Formu as $u)
+                  @foreach($report as $u)
                   <tr>
-                     <td>{{ $u->id_examen }}</td>
-                     <td>{{ $u->NombreF }}</td>
-                     <td> <a href="/deleteF/{{$u->id_examen}}" class="btn btn_danger">  Eliminar</a>
+                     <td>{{ $u->nombre }}</td>
+<td>{{ $u->Formulario }}</td>
 
                   </tr>
                   @endforeach
