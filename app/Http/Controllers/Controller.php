@@ -10,6 +10,10 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use DB;
 use Session;
 
+use App\Http\Requests;
+use Charts;
+
+
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -68,6 +72,7 @@ echo "<script type='text/javascript'>alert('Error  No existe el usuario');</scri
  	return redirect('/END');
 
  }
+
 
 
 
@@ -243,11 +248,27 @@ public function eliminarOperadores(Request $req)
               $report=DB::select('SELECT  c.nombre, count(*) as \'Formulario\' from cliente c, respuestacliente rc, preguntaformulario pf where rc.preguntaformulario_idpreguntaformulario=pf.idpreguntaformulario and c.cliente_id=rc.cliente_cliente_id group by c.nombre order BY count(*) DESC  limit 10');
 
 
+                                  return view('APrincipales/Reporte1',compact('report'));
+                                }
+
+                                public function Reporte8(Request $req)
+                                         {
+
+                                           $report=DB::select('select * from formulario');
+
+
+                                       return view('APrincipales/Reporte9',compact('report'));
+
+                                          }
+                            
+                                          
+
               return view('APrincipales/Reporte5',compact('report'));
             }
             public function Reporte6(Request $req){
 
               $report=DB::select('select c.nombre, f.NombreF from respuestacliente rc, preguntaformulario pf, cliente c, formulario f where rc.cliente_cliente_id=c.cliente_id and pf.idpreguntaformulario=rc.preguntaformulario_idpreguntaformulario group by nombre, NombreF');
+
 
               return view('APrincipales/Reporte6',compact('report'));
             }
@@ -360,6 +381,7 @@ public function eliminarOperadores(Request $req)
 			   {
 				 DB::table('pregunta')->insert(['pregunta'=>$req->input('TPregunta'),'respuesta'=>$req->input('TRespuesta'),'TipoPregunta'=>1,'SigPregunta'=>$req->input('TRB'),'SigPregunta_Mala'=>$req->input('TRM')]);
 				 Session::put('Reporte', 'r5');
+
 
 
 				 $Preg = DB::select('select * from pregunta order by idpregunta DESC');
@@ -542,5 +564,90 @@ public function eliminarOperadores(Request $req)
             				return View('Questions/LeerPublicacion')->with('pregs',$preguntas);
             		}
             	}
+
+
+ public function grafica() {
+        $chartjs = app()->chartjs
+                ->name('lineChartTest')
+                ->type('line')
+                ->size(['width' => 400, 'height' => 200])
+                ->labels(['January', 'February', 'March', 'April', 'May', 'June', 'July'])
+                ->datasets([
+                    [
+                        "label" => "My First dataset",
+                        'backgroundColor' => "rgba(38, 185, 154, 0.31)",
+                        'borderColor' => "rgba(38, 185, 154, 0.7)",
+                        "pointBorderColor" => "rgba(38, 185, 154, 0.7)",
+                        "pointBackgroundColor" => "rgba(38, 185, 154, 0.7)",
+                        "pointHoverBackgroundColor" => "#fff",
+                        "pointHoverBorderColor" => "rgba(220,220,220,1)",
+                        'data' => [65, 59, 80, 81, 56, 55, 40],
+                    ],
+                    [
+                        "label" => "My Second dataset",
+                        'backgroundColor' => "rgba(38, 185, 154, 0.31)",
+                        'borderColor' => "rgba(38, 185, 154, 0.7)",
+                        "pointBorderColor" => "rgba(38, 185, 154, 0.7)",
+                        "pointBackgroundColor" => "rgba(38, 185, 154, 0.7)",
+                        "pointHoverBackgroundColor" => "#fff",
+                        "pointHoverBorderColor" => "rgba(220,220,220,1)",
+                        'data' => [12, 33, 44, 44, 55, 23, 40],
+                    ]
+                ])
+                ->options([]);
+
+        return view('APrincipales/example', compact('chartjs'));
+
+        }
+
+
+public function chartjs()
+{
+    $viewer = View::select(DB::raw("SUM(numberofview) as count"))
+        ->orderBy("created_at")
+        ->groupBy(DB::raw("year(created_at)"))
+        ->get()->toArray();
+    $viewer = array_column($viewer, 'count');
+    
+    $click = Click::select(DB::raw("SUM(numberofclick) as count"))
+        ->orderBy("created_at")
+        ->groupBy(DB::raw("year(created_at)"))
+        ->get()->toArray();
+    $click = array_column($click, 'count');
+    
+
+    return view('APrincipales/chartjs')
+            ->with('viewer',json_encode($viewer,JSON_NUMERIC_CHECK))
+            ->with('click',json_encode($click,JSON_NUMERIC_CHECK));
+}
+
+
+public function index()
+    {
+        $chart = Charts::multi('bar', 'material')
+            // Setup the chart settings
+            ->title("My Cool Chart")
+            // A dimension of 0 means it will take 100% of the space
+            ->dimensions(0, 400) // Width x Height
+            // This defines a preset of colors already done:)
+            ->template("material")
+            // You could always set them manually
+            // ->colors(['#2196F3', '#F44336', '#FFC107'])
+            // Setup the diferent datasets (this is a multi chart)
+            ->dataset('Element 1', [5,20,100])
+            ->dataset('Element 2', [15,30,80])
+            ->dataset('Element 3', [25,10,40])
+            // Setup what the values mean
+            ->labels(['One', 'Two', 'Three']);
+
+        return view('test', ['chart' => $chart]);
+    }
+
+
+	 
+}
+
+
+	  
 
     }
