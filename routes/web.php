@@ -92,6 +92,21 @@ Route::get('/rr1', function (){
 
 
 
+Route::get('/home', function (){
+
+  return view('home');
+});
+
+
+
+Route::get('/graficar', function (){
+
+return Redirect::to('https://demo.bpmn.io/s/start');
+});
+
+
+
+
 
 Route::post('/end','Controller@end');
 
