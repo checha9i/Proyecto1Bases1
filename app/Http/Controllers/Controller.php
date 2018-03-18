@@ -255,7 +255,7 @@ public function eliminarOperadores(Request $req)
 
               return view('APrincipales/Reporte4',compact('report'));
             }
-            public function Reporte4(Request $req){
+            public function Reporte3(Request $req){
 
 
 
@@ -453,6 +453,11 @@ public function eliminarOperadores(Request $req)
 			   }
 			   else if (SESSION::GET('Reporte')=='r4')
 			   {
+           DB::table('cliente')
+           ->where('cliente_id',Session::get('IdClient'))
+           ->update(['estado' => 1]);
+
+
 				 DB::table('pregunta')->insert(['pregunta'=>$req->input('TPregunta'),'TipoPregunta'=>4, 'SigPregunta'=>1,'SigPregunta_Mala'=>1]);
 				  Session::put('Reporte', 'r5');
 
@@ -461,11 +466,15 @@ public function eliminarOperadores(Request $req)
 				 DB::table('preguntaformulario')->insert(['numemro'=>Session::get('ContadorPre'),'formulario_id_examen'=>Session::get('IdForm'),'pregunta_idpregunta'=>$Preg[0]->idpregunta]);
                  Session::put('ContadorPre', Session::get('ContadorPre') + 1);
 
-				  if (Session::get('NumPreg') == Session::get('ContadorPre'))
+
+          if (Session::get('NumPreg') == Session::get('ContadorPre'))
 				   {
 					   Session::put('Reporte', 'r4');
 				   }
 
+           DB::table('cliente')
+           ->where('cliente_id',Session::get('IdClient'))
+           ->update(['estado' => 1]);
 				  return view('Questions/Operador');
 			   }
 			   else
@@ -490,12 +499,16 @@ public function eliminarOperadores(Request $req)
          			if ($Nombre != null)
          			{
          				$data = array('nombre'=>$Nombre, 'edad'=>$Edad, 'direccion'=>$Direccion, 'telefono'=>$tel,
-         				'correo_e'=>$corr);
+         				'correo_e'=>$corr,'estado'=>0);
          				DB::table('cliente')->insert($data);
+
          				$Clien = DB::select('select * from cliente order by cliente_id DESC');
 
          				Session::put('IdClient', $Clien[0]->cliente_id);
-         				$Form = DB::select('select * from formulario where id_examen = :nom', ['nom'=>$fo ]);
+
+
+
+                $Form = DB::select('select * from formulario where id_examen = :nom', ['nom'=>$fo ]);
          				$exa = $Form[0]->id_examen;
          				Session::put('IdForm', $exa);
 
@@ -511,7 +524,7 @@ public function eliminarOperadores(Request $req)
 
          	  }
 
-            	  public function Leer(Request $req, $id = null)
+            	  public function Leer(Request $req, $id )
             	{
 
             		Session::put('IdForm', $id);

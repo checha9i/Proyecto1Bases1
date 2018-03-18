@@ -110,7 +110,7 @@ $conexion = new mysqli($servername, $username, $password,'basesproyecto1');
 
 <form role="form" action="/Report3" method="post" class="login-form">
   <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<input type="submit"  class="btn-primary btn-md" name="crear" value="Reporte 3 Grafica">
+<input type="submit"  class="btn-info btn-md" name="crear" value="Reporte 3 Grafica">
 </form>
 
 
