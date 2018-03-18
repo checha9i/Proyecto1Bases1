@@ -81,6 +81,15 @@ Route::post('/Report10','Controller@Reporte10');
 
 Route::post('/Reporte2Formu','Controller@Reporte2Detalle');
 
+Route::post('/graficar1','Controller@grafica');
+
+Route::get('chartjs', 'Controller@chartjs');
+
+Route::get('/rr1', function (){
+
+  return view('APrincipales/example');
+});
+
 
 
 

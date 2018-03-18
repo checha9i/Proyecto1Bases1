@@ -1,7 +1,35 @@
+
+
+<?php
+
+  $servername = "localhost";
+$username = "javier";
+$password = "1234";
+
+// Create connection
+$conexion = new mysqli($servername, $username, $password,'basesproyecto1');
+
+
+  $categorias = array('usuario');
+  $enero = array('tipo_puesto');
+  
+  $consulta = "SELECT nombre FROM usuario";
+  $result = $conexion->query($consulta);
+  
+  while ($fila = $result->fetch_array()) {
+    $categorias[] = $fila['nombre'];
+  }
+
+
+
+  echo json_encode( array($categorias,$enero) );
+  
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
-<?php $mysqli = new mysqli('localhost', 'javier', '1234', 'basesproyecto1');
-?>
+
   <head>
 
     <meta charset="utf-8">
@@ -71,44 +99,55 @@
 
                                       <form role="form" action="/Report1" method="post" class="login-form">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                      <input type="submit"  class="btn-info btn-md" name="crear" value="Reporte 1">
+
+  
+                                      <input type="submit"  class="btn-info btn-md" name="crear" value="Reporte 1 Clientes menores de edad">
                                      </form>
 
-<form role="form" action="/Report2" method="post" class="login-form">
+<form role="form" action="/graficar1" method="post" class="login-form">
   <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<input type="submit"  class="btn-default btn-md" name="crear" value="Reporte 2">
+<input type="submit"  class="btn-default btn-md" name="crear" value="Reporte 2 Estado de clientes">
 </form>
 
-<form role="form" action="/Report3" method="post" class="login-form">
+<form role="form" action="/rr1" method="get" class="login-form">
   <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<input type="submit"  class="btn-info btn-md" name="crear" value="Reporte 3">
+<input type="submit"  class="btn-info btn-md" name="crear" value="Reporte 3 Flujo de clientes">
 </form>
+
+
 
 <form role="form" action="/Report4" method="post" class="login-form">
   <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<input type="submit"  class="btn-default btn-md" name="crear" value="Reporte 4">
+<input type="submit"  class="btn-default btn-md" name="crear" value="Reporte 4 Bitacora">
 </form>
+
+
+
 
 <form role="form" action="/Report5" method="post" class="login-form">
   <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<input type="submit"  class="btn-info btn-md" name="crear" value="Reporte 5">
+<input type="submit"  class="btn-info btn-md" name="crear" value="Reporte 5 Top 10 de formulario">
 </form>
 
 <form role="form" action="/Report6" method="post" class="login-form">
   <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<input type="submit"  class="btn-default btn-md" name="crear" value="Reporte 6">
+<input type="submit"  class="btn-default btn-md" name="crear" value="Reporte 6 Clientes que respondieron formularios">
 </form>
 
 <form role="form" action="/Report7" method="post" class="login-form">
   <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<input type="submit"  class="btn-info btn-md" name="crear" value="Reporte 7">
+<input type="submit"  class="btn-info btn-md" name="crear" value="Reporte 7 Respuesta cliente por pregunta">
 </form>
 
 <form role="form" action="/Report8" method="post" class="login-form">
   <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<input type="submit"  class="btn-default btn-md" name="crear" value="Reporte 8">
+<input type="submit"  class="btn-default btn-md" name="crear" value="Reporte 8 Grafica de porcentajes">
 </form>
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
 
                                       </div>
                                     </div>
