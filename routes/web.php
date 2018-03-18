@@ -41,6 +41,9 @@ Route::post('/Report3', function () {
     return view('APrincipales/Reporte3');
 });
 
+Route::post('/Report8', function () {
+    return view('APrincipales/Reporte8');
+});
 Route::get('/END', function (){
 
   return view('Auth/End');
@@ -77,9 +80,7 @@ Route::post('/Report4','Controller@Reporte4');
 Route::post('/Report5','Controller@Reporte5');
 Route::post('/Report6','Controller@Reporte6');
 Route::post('/Report7','Controller@Reporte7');
-Route::post('/Report8','Controller@Reporte8');
-Route::post('/Report9','Controller@Reporte9');
-Route::post('/Report10','Controller@Reporte10');
+
 
 Route::post('/Reporte2Formu','Controller@Reporte2Detalle');
 

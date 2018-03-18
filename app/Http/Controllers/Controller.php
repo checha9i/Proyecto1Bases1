@@ -275,10 +275,8 @@ public function eliminarOperadores(Request $req)
                                 public function Reporte8(Request $req)
                                          {
 
-                                           $report=DB::select('select * from formulario');
 
-
-                                       return view('APrincipales/Reporte8',compact('report'));
+                                       return view('APrincipales/Reporte8');
 
                                           }
 
@@ -498,8 +496,10 @@ public function eliminarOperadores(Request $req)
 
          			if ($Nombre != null)
          			{
-         				$data = array('nombre'=>$Nombre, 'edad'=>$Edad, 'direccion'=>$Direccion, 'telefono'=>$tel,
-         				'correo_e'=>$corr,'estado'=>0);
+                $Ope = DB::select('select id_usu from usuario where nombre= :nom',['nom'=>SESSION::get('USU')]);
+
+                $data = array('nombre'=>$Nombre, 'edad'=>$Edad, 'direccion'=>$Direccion, 'telefono'=>$tel,
+         				'correo_e'=>$corr,'estado'=>0,'operador'=>$Ope[0]->id_usu);
          				DB::table('cliente')->insert($data);
 
          				$Clien = DB::select('select * from cliente order by cliente_id DESC');
