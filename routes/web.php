@@ -82,7 +82,9 @@ Route::post('/Report10','Controller@Reporte10');
 Route::post('/Reporte2Formu','Controller@Reporte2Detalle');
 
 
+Route::post('/EliminarPreguntas','Controller@EliminarPreguntas');
 
+Route::get('/EliminarPregunta','Controller@EliminarPregunta');
 
 Route::post('/end','Controller@end');
 

@@ -81,7 +81,10 @@
                        </form>
 
                         <!-- <li><a href="/Eliop">Regresar</a></li> -->
-
+                        <form role="form" action="/EliminarPreguntas" method="post" class="login-form">
+                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="submit"  class="btn-primary btn-md"  name="login" value="Eliminar Preguntas">
+                           </form>
                     </div>
 
 
