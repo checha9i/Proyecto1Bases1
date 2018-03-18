@@ -144,7 +144,10 @@ $conexion = new mysqli($servername, $username, $password,'basesproyecto1');
 <input type="submit"  class="btn-default btn-md" name="crear" value="Reporte 8 Grafica de porcentajes">
 </form>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 
                                       </div>
                                     </div>

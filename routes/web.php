@@ -38,6 +38,7 @@ Route::get('/ERROR', function (){
 });
 
 
+
 Route::get('/END', function (){
 
   return view('Auth/End');
@@ -64,6 +65,7 @@ Route::get('editar/{id}','Controller@edit') ;
 
 Route::get('deleteF/{id}','Controller@destroyF') ;
 
+
 Route::post('/EliminarFormulario','Controller@EliminarFormulario');
 
 Route::post('/Report1','Controller@Reporte1');
@@ -87,6 +89,7 @@ Route::get('/rr1', function (){
 
   return view('APrincipales/example');
 });
+
 
 
 
