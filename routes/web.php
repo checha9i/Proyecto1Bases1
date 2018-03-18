@@ -91,7 +91,9 @@ Route::get('/rr1', function (){
 });
 
 
+Route::post('/EliminarPreguntas','Controller@EliminarPreguntas');
 
+Route::get('/EliminarPregunta','Controller@EliminarPregunta');
 
 Route::post('/end','Controller@end');
 

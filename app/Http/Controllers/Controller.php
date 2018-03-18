@@ -141,6 +141,20 @@ public function eliminarOperadores(Request $req)
 
    	 }
 
+
+     public function EliminarPreguntas(Request $req)
+          {
+          	$formu=DB::select('select * from formulario');
+
+     		return view('Auth/SelFormEli',compact('formu'));
+        	 }
+           public function EliminarPregunta($id)
+                {
+                	$formu=DB::select('select * from pregunta p, formulario f where f.id_examen=? ',[$id]);
+
+           		return view('Auth/EliminarPregunta',compact('formu'));
+              	 }
+
      public function EliminarFormulario(Request $req)
           {
           	$date = new \DateTime();
