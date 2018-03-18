@@ -8,7 +8,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Eliminar Formulario</title>
+        <title>Reporte 2</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -57,24 +57,22 @@
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 text">
 
-                    <h1><strong>Formulario Para Eliminar</strong>  </h1>
+                    <h1><strong>Reporte 2</strong>  </h1>
 
-            <p> </p>
+
+
+            <p> Seleccione un Formulario</p>
 
             <center>
             <table class="table table-striped table-bordered" border = "5">
                <tr>
-                 <td>Cliente</td>
-                      <td>Respuesta</td>
-                  <td>Pregunta</td>
+                      <td>Formulario</td>
+
 
                </tr>
-                  @foreach($report as $u)
+                  @foreach($formu as $u)
                   <tr>
-                    <td>{{ $u->nombre }}</td>
-                     <td>{{ $u->Respuesta }}</td>
-                     <td>{{ $u->pregunta }}</td>
-
+                     <td><a href="/EliminarPregunta/{{$u->id_examen}}" class="btn btn_primary">{{ $u->NombreF }}</a></td>
                   </tr>
                   @endforeach
             </table>
