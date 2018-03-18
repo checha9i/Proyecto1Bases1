@@ -242,12 +242,24 @@ public function eliminarOperadores(Request $req)
   public function Reporte2(Request $req)
            {
 
-             $report=DB::select('select * from preguntas,');
+             $report=DB::select('select * from formulario');
 
 
          return view('APrincipales/Reporte2',compact('report'));
 
             }
+
+            public function Reporte2Detalle(Request $req,$id)
+                     {
+
+
+
+$report=DB::select('select c.nombre, c.estado , u.nombre as \'NombreO\' from cliente c,usuario u, formulario f, preguntaformulario pf ,respuestacliente rc where rc.cliente_cliente_id=c.cliente_id and pf.formulario_id_examen= :id and u.id_usu=c.operador   order by c.nombre;',['id'=>$id]);
+
+                   return view('APrincipales/DetalleReporte2',compact('report'));
+
+                      }
+
             public function Reporte4(Request $req){
 
               $report=DB::select('select * from bitacora;');
@@ -548,7 +560,7 @@ public function eliminarOperadores(Request $req)
             			if ($Actual >= Session::get('ConteoPreguntas'))
             			{
             				$idsaber = DB::select('select * from preguntaformulario where formulario_id_examen = :id  and numemro = :num ;', ['id'=>Session::get('IdForm'), 'num'=>($Actual-1)]);
-
+DB::table('cliente')->where('cliente_id', Session::get('IdClient'))->update(['estado' => 1]);
             				$data = array('Respuesta'=>$Opcion, 'cliente_cliente_id'=>Session::get('IdClient'),'preguntaformulario_idpreguntaformulario'=>$idsaber[0]->idpreguntaformulario);
             				DB::table('respuestacliente')->insert($data);
             				return view('/Questions/Operador');
