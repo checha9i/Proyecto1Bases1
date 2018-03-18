@@ -148,9 +148,10 @@ public function eliminarOperadores(Request $req)
 
      		return view('Auth/SelFormEli',compact('formu'));
         	 }
-           public function EliminarPregunta($id)
+
+           public function EliminarPregunta(Request $req,$id)
                 {
-                	$formu=DB::select('select * from pregunta p, formulario f where f.id_examen=? ',[$id]);
+                	$formu=DB::select('select * from pregunta p, formulario f where f.id_examen = :id', [ 'id' => $id]);
 
            		return view('Auth/EliminarPregunta',compact('formu'));
               	 }
@@ -166,6 +167,7 @@ public function eliminarOperadores(Request $req)
      		return view('Questions/BorrarFormulario',compact('Formu'));
 
         	 }
+
 
  public function destroy($id) {
 
@@ -187,17 +189,28 @@ public function eliminarOperadores(Request $req)
 
 
  public function destroyF($id) {
-      DB::delete('delete * from pregunta where id_examen = ?',[$id]) ;
-      DB::delete('delete from formulario where id_examen = ?',[$id]) ;
-    $date = new \DateTime();
-         $NombreF=Session::get('USU');
-	     DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Eliminó Pregunta y formulario ['.$id.']' ]);
+   DB::delete('delete * from pregunta where id_examen = ? ',[$id]) ;
+   DB::delete('delete from formulario where id_examen = ? ',[$id]) ;
+        $date = new \DateTime();
+      $NombreF=Session::get('USU');
+	     DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Eliminó Pregunta ['.$id.']' ]);
 
       echo "Record deleted successfully.<br/>";
       echo '<a href="/Operador">Click Here</a> to go back.';
    }
 
+   public function destroyP(Request $req,$id) {
 
+     DB::delete('delete from respuestacliente where preguntaformulario_idpreguntaformulario= (select idpreguntaformulario from preguntaformulario where pregunta_idpregunta=:id ) ', ['id'=>$id]);
+      DB::delete('delete  from preguntaformulario where pregunta_idpregunta = ?', [$id]);
+          DB::delete('delete  from pregunta where idpregunta = ?', [$id]);
+        $date = new \DateTime();
+           $NombreF=Session::get('USU');
+         DB::table('bitacora')->insert(['nombreUsu'=>$NombreF,'fecha'=>$date,'detalle'=>'Eliminó Pregunta ['.$id.']' ]);
+
+        echo "Record deleted successfully.<br/>";
+        echo '<a href="/Admin">Click Here</a> to go back.';
+     }
 
  public function edit( Request $req,$id=null) {
 
@@ -242,14 +255,22 @@ public function eliminarOperadores(Request $req)
 
               return view('APrincipales/Reporte4',compact('report'));
             }
+            public function Reporte4(Request $req){
+
+
+
+              return view('APrincipales/Reporte3');
+            }
 
             public function Reporte5(Request $req){
 
               $report=DB::select('SELECT  c.nombre, count(*) as \'Formulario\' from cliente c, respuestacliente rc, preguntaformulario pf where rc.preguntaformulario_idpreguntaformulario=pf.idpreguntaformulario and c.cliente_id=rc.cliente_cliente_id group by c.nombre order BY count(*) DESC  limit 10');
 
 
-                                  return view('APrincipales/Reporte1',compact('report'));
+                                  return view('APrincipales/Reporte5',compact('report'));
                                 }
+
+
 
                                 public function Reporte8(Request $req)
                                          {
@@ -257,14 +278,13 @@ public function eliminarOperadores(Request $req)
                                            $report=DB::select('select * from formulario');
 
 
-                                       return view('APrincipales/Reporte9',compact('report'));
+                                       return view('APrincipales/Reporte8',compact('report'));
 
                                           }
-                            
-                                          
 
-              return view('APrincipales/Reporte5',compact('report'));
-            }
+
+
+
             public function Reporte6(Request $req){
 
               $report=DB::select('select c.nombre, f.NombreF from respuestacliente rc, preguntaformulario pf, cliente c, formulario f where rc.cliente_cliente_id=c.cliente_id and pf.idpreguntaformulario=rc.preguntaformulario_idpreguntaformulario group by nombre, NombreF');
@@ -274,7 +294,7 @@ public function eliminarOperadores(Request $req)
             }
             public function Reporte7(Request $req){
 
-              $report=DB::select('select rc.Respuesta, p.pregunta from respuestacliente rc, pregunta p, preguntaformulario pf where rc.preguntaformulario_idpreguntaformulario=pf.idpreguntaformulario order by pregunta');
+              $report=DB::select('select rc.Respuesta, p.pregunta, c.nombre from cliente c,respuestacliente rc, pregunta p, preguntaformulario pf where rc.preguntaformulario_idpreguntaformulario=pf.idpreguntaformulario and c.cliente_id=rc.cliente_cliente_id order by pregunta');
 
               return view('APrincipales/Reporte7',compact('report'));
             }
@@ -608,13 +628,13 @@ public function chartjs()
         ->groupBy(DB::raw("year(created_at)"))
         ->get()->toArray();
     $viewer = array_column($viewer, 'count');
-    
+
     $click = Click::select(DB::raw("SUM(numberofclick) as count"))
         ->orderBy("created_at")
         ->groupBy(DB::raw("year(created_at)"))
         ->get()->toArray();
     $click = array_column($click, 'count');
-    
+
 
     return view('APrincipales/chartjs')
             ->with('viewer',json_encode($viewer,JSON_NUMERIC_CHECK))
@@ -644,10 +664,5 @@ public function index()
     }
 
 
-	 
+
 }
-
-
-	  
-
-    }

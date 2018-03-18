@@ -12,18 +12,17 @@ $conexion = new mysqli($servername, $username, $password,'basesproyecto1');
 
   $categorias = array('usuario');
   $enero = array('tipo_puesto');
-  
+
   $consulta = "SELECT nombre FROM usuario";
   $result = $conexion->query($consulta);
-  
+
   while ($fila = $result->fetch_array()) {
     $categorias[] = $fila['nombre'];
   }
 
 
 
-  echo json_encode( array($categorias,$enero) );
-  
+
 ?>
 
 
@@ -100,7 +99,7 @@ $conexion = new mysqli($servername, $username, $password,'basesproyecto1');
                                       <form role="form" action="/Report1" method="post" class="login-form">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-  
+
                                       <input type="submit"  class="btn-info btn-md" name="crear" value="Reporte 1 Clientes menores de edad">
                                      </form>
 
@@ -109,9 +108,9 @@ $conexion = new mysqli($servername, $username, $password,'basesproyecto1');
 <input type="submit"  class="btn-default btn-md" name="crear" value="Reporte 2 Estado de clientes">
 </form>
 
-<form role="form" action="/rr1" method="get" class="login-form">
+<form role="form" action="/Report3" method="post" class="login-form">
   <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<input type="submit"  class="btn-info btn-md" name="crear" value="Reporte 3 Flujo de clientes">
+<input type="submit"  class="btn-primary btn-md" name="crear" value="Reporte 3 Grafica">
 </form>
 
 
@@ -144,10 +143,7 @@ $conexion = new mysqli($servername, $username, $password,'basesproyecto1');
 <input type="submit"  class="btn-default btn-md" name="crear" value="Reporte 8 Grafica de porcentajes">
 </form>
 
-<<<<<<< HEAD
 
-=======
->>>>>>> master
 
                                       </div>
                                     </div>

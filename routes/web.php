@@ -37,7 +37,9 @@ Route::get('/ERROR', function (){
   return view('Auth/Error');
 });
 
-
+Route::post('/Report3', function () {
+    return view('APrincipales/Reporte3');
+});
 
 Route::get('/END', function (){
 
@@ -64,13 +66,13 @@ Route::get('delete/{id}','Controller@destroy') ;
 Route::get('editar/{id}','Controller@edit') ;
 
 Route::get('deleteF/{id}','Controller@destroyF') ;
-
+Route::get('deleteP/{id}','Controller@destroyP') ;
 
 Route::post('/EliminarFormulario','Controller@EliminarFormulario');
 
 Route::post('/Report1','Controller@Reporte1');
 Route::post('/Report2','Controller@Reporte2');
-Route::post('/Report3','Controller@Reporte3');
+
 Route::post('/Report4','Controller@Reporte4');
 Route::post('/Report5','Controller@Reporte5');
 Route::post('/Report6','Controller@Reporte6');
@@ -83,17 +85,12 @@ Route::post('/Reporte2Formu','Controller@Reporte2Detalle');
 
 Route::post('/graficar1','Controller@grafica');
 
-Route::get('chartjs', 'Controller@chartjs');
 
-Route::get('/rr1', function (){
-
-  return view('APrincipales/example');
-});
 
 
 Route::post('/EliminarPreguntas','Controller@EliminarPreguntas');
 
-Route::get('/EliminarPregunta','Controller@EliminarPregunta');
+Route::get('/EliminarPregunta/{id}','Controller@EliminarPregunta');
 
 Route::post('/end','Controller@end');
 
