@@ -82,7 +82,7 @@ Route::post('/Report6','Controller@Reporte6');
 Route::post('/Report7','Controller@Reporte7');
 
 
-Route::post('/Reporte2Formu','Controller@Reporte2Detalle');
+Route::get('/Reporte2Formu/{id}','Controller@Reporte2Detalle');
 
 Route::post('/graficar1','Controller@grafica');
 

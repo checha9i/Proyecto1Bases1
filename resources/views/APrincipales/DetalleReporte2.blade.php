@@ -17,6 +17,8 @@
 		    <link rel="stylesheet" href="css/form-elements.css">
         <link rel="stylesheet" href="css/style.css">
 
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 
 
                                                                                     <!-- Favicon and touch icons -->
@@ -25,30 +27,6 @@
 
     <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">Call Center E-Sports</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="/Login"><i class="fa fa-sign-in"></i> Log in</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="/Register">Sign Up</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
 
 <div class="top-content">
 
@@ -66,13 +44,17 @@
             <center>
             <table class="table table-striped table-bordered" border = "5">
                <tr>
-                      <td>Formulario</td>
+                      <td>Cliente</td>
+                      <td>Estado</td>
+                      <td>Operador</td>
 
 
                </tr>
                   @foreach($report as $u)
                   <tr>
-                     <td><a href="/Reporte2Formu/{{$u->id_examen}}" class="btn btn_primary">{{ $u->NombreF }}</a></td>
+                     <td>{{ $u->nombre }}</td>
+                     <td>{{ $u->estado }}</td>
+                     <td>{{ $u->NombreO }}</td>
                   </tr>
                   @endforeach
             </table>
