@@ -64,14 +64,16 @@
             <center class="container">
             <table class="table table-striped table-bordered" border = "5">
                <tr>
-                      <td>Cliente</td>
+                      <td>Nombre</td>
                   <td>Edad</td>
+                  <td>Formulario</td>
 
                </tr>
                   @foreach($report as $u)
                   <tr>
+                     <td>{{ $u->nombre }}</td>
+                     <td>{{ $u->edad }}</td>
                      <td>{{ $u->NombreF }}</td>
-
 
 
                   </tr>
