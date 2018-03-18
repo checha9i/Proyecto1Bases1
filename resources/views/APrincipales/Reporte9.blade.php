@@ -1,5 +1,9 @@
 
-
+<?php
+$connect = mysqli_connect("localhost", "javier", "1234", "basesproyecto1");
+$query = "SELECT nombre, edad FROM cliente WHERE edad < '18' OR edad = '20'  ORDER BY edad, nombre";
+$result = mysqli_query($connect, $query);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +22,9 @@
         <link rel="stylesheet" href="css/style.css">
 
 
-    <!-- Favicon and touch icons -->
+
+
+                                                                                    <!-- Favicon and touch icons -->
 
     </head>
 
@@ -56,26 +62,19 @@
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 text">
 
-                    <h1><strong>Formulario Para Eliminar</strong>  </h1>
+                    <h1><strong>Reporte 3</strong>  </h1>
 
             <p> </p>
 
             <center>
-            <table class="table table-striped table-bordered" border = "5">
-               <tr>
-                      <td>Id</td>
-                  <td>Nombre</td>
 
-               </tr>
-                  @foreach($Formu as $u)
-                  <tr>
-                     <td>{{ $u->id_examen }}</td>
-                     <td>{{ $u->NombreF }}</td>
-                     <td> <a href="/deleteF/{{$u->id_examen}}" class="btn btn_danger">  Eliminar</a>
+              <div style="width:900px;">
+                              <h3 align="center">Make Simple Pie Chart by Google Chart API with PHP Mysql</h3>
+                              <br />
+                              <div id="piechart" style="width: 900px; height: 500px;"></div>
+                         </div>
 
-                  </tr>
-                  @endforeach
-            </table>
+
 
             </center>
 
@@ -88,11 +87,32 @@
         </div>
 
 
-
     </div>
 
-</div>
-
+</div>  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+          <script type="text/javascript">
+          google.charts.load('current', {'packages':['corechart']});
+          google.charts.setOnLoadCallback(drawChart);
+          function drawChart()
+          {
+               var data = google.visualization.arrayToDataTable([
+                         ['nombre', 'edad'],
+                         <?php
+                         while($row = mysqli_fetch_array($result))
+                         {
+                              echo "['".$row["nombre"]."', ".$row["edad"]."],";
+                         }
+                         ?>
+                    ]);
+               var options = {
+                     title: 'Percentage of Male and Female Employee',
+                     //is3D:true,
+                     pieHole: 0.4
+                    };
+               var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+               chart.draw(data, options);
+          }
+          </script>
 </body>
 
 </html>

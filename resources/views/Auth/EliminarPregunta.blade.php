@@ -8,47 +8,25 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Eliminar Formulario</title>
+        <title>Eliminar pregunta </title>
+
+
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-		    <link rel="stylesheet" href="css/form-elements.css">
+        <link rel="stylesheet" href="css/form-elements.css">
         <link rel="stylesheet" href="css/style.css">
-
-
-
                                                                                     <!-- Favicon and touch icons -->
 
     </head>
 
     <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">Call Center E-Sports</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="/Login"><i class="fa fa-sign-in"></i> Log in</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="/Register">Sign Up</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+
 
 <div class="top-content">
 
@@ -68,10 +46,10 @@
                   <td></td>
                   <td></td>
                </tr>
-                  @foreach($Formu as $u)
+                  @foreach($formu as $u)
                   <tr>
                      <td>{{ $u->pregunta }}</td>
-
+                        <td>{{ $u->pregunta }}</td>
                      <td> <a href="/editP/{{$u->idpregunta}}" class="btn btn_danger">  Editar</a>
                      <td> <a href="/deleteP/{{$u->idpregunta}}" class="btn btn_danger">  Eliminar</a>
 
